@@ -1,0 +1,154 @@
+{
+  "datasets_metadata": {
+    "version": "2.5.0",
+    "total_instruments_tracked": 15,
+    "regimes_covered": ["BULL_TREND", "BEAR_CRASH", "HIGH_VOLATILITY", "RANGE_BOUND_CHOP"],
+    "granularity": ["1-Minute Scalp", "5-Minute Intraday", "Daily EOD", "Weekly Positional"],
+    "currency": "INR"
+  },
+  "instruments": {
+    "NIFTY50": {
+      "name": "Nifty 50 Index (NSE)",
+      "type": "Index Derivative / Cash",
+      "52w_high": 26277.35,
+      "52w_low": 18837.85,
+      "current_benchmark": 24820.00,
+      "historical_volatility_pct": 13.8,
+      "pe_ratio": 22.8,
+      "pb_ratio": 3.9,
+      "dividend_yield_pct": 1.25,
+      "regime_distribution": {"trending": "48%", "ranging": "38%", "volatile": "14%"}
+    },
+    "BANKNIFTY": {
+      "name": "Nifty Bank Index (NSE)",
+      "type": "Banking Index Derivative",
+      "52w_high": 54467.35,
+      "52w_low": 42105.40,
+      "current_benchmark": 51350.00,
+      "historical_volatility_pct": 17.2,
+      "pe_ratio": 16.4,
+      "regime_distribution": {"trending": "52%", "ranging": "31%", "volatile": "17%"}
+    },
+    "TATASTEEL.NS": {
+      "name": "Tata Steel Limited",
+      "type": "Metals & Mining",
+      "52w_high": 184.60,
+      "52w_low": 114.25,
+      "current_benchmark": 164.50,
+      "beta": 1.45,
+      "annual_production_capacity_mt": 35.0,
+      "coking_coal_sensitivity": "HIGH (32% of cost of sales)",
+      "domestic_delivery_share": "82%"
+    },
+    "COALINDIA.NS": {
+      "name": "Coal India Limited",
+      "type": "Natural Resources Mining",
+      "52w_high": 527.40,
+      "52w_low": 286.00,
+      "current_benchmark": 492.80,
+      "beta": 0.88,
+      "dividend_yield_pct": 6.85,
+      "global_rank": "World's Largest Coal Miner (700+ MT/year)",
+      "e_auction_premium_avg": "+56%"
+    },
+    "NMDC.NS": {
+      "name": "National Mineral Development Corp",
+      "type": "Iron Ore Mining PSU",
+      "52w_high": 286.35,
+      "52w_low": 142.10,
+      "current_benchmark": 224.60,
+      "beta": 1.22,
+      "dividend_yield_pct": 4.60,
+      "domestic_market_share": "Top Iron Ore Producer (45+ MT/year)",
+      "iron_ore_fines_price_inr_ton": 4350.0
+    },
+    "VEDL.NS": {
+      "name": "Vedanta Limited",
+      "type": "Polymetallic & Mining Giant",
+      "52w_high": 506.85,
+      "52w_low": 207.85,
+      "current_benchmark": 478.10,
+      "beta": 1.58,
+      "dividend_yield_pct": 8.40,
+      "core_minerals": ["Zinc", "Lead", "Silver", "Aluminium", "Iron Ore", "Oil & Gas"]
+    },
+    "HINDALCO.NS": {
+      "name": "Hindalco Industries Ltd",
+      "type": "Aluminium & Copper Miner",
+      "52w_high": 715.30,
+      "52w_low": 454.00,
+      "current_benchmark": 685.40,
+      "beta": 1.35,
+      "global_subsidiary": "Novelis Inc (World's #1 Aluminium Flat-Roller)"
+    },
+    "HINDZINC.NS": {
+      "name": "Hindustan Zinc Ltd",
+      "type": "Zinc & Primary Silver Miner",
+      "52w_high": 807.00,
+      "52w_low": 285.00,
+      "current_benchmark": 512.30,
+      "beta": 1.28,
+      "global_standing": "World's 2nd Largest Integrated Zinc Producer, Top 5 Silver Producer"
+    },
+    "RELIANCE.NS": {
+      "name": "Reliance Industries Limited",
+      "type": "Energy, Refining & Retail",
+      "52w_high": 3217.90,
+      "52w_low": 2221.05,
+      "current_benchmark": 2945.50,
+      "beta": 1.05,
+      "market_cap_inr_lakh_cr": 19.8
+    },
+    "TCS.NS": {
+      "name": "Tata Consultancy Services",
+      "type": "IT Services & Tech",
+      "52w_high": 4585.90,
+      "52w_low": 3313.00,
+      "current_benchmark": 3915.20,
+      "beta": 0.78,
+      "operating_margin_pct": 24.5
+    },
+    "HDFCBANK.NS": {
+      "name": "HDFC Bank Limited",
+      "type": "Private Banking & Financials",
+      "52w_high": 1794.00,
+      "52w_low": 1363.45,
+      "current_benchmark": 1642.80,
+      "beta": 1.10,
+      "gross_npa_pct": 1.24
+    },
+    "GOLD_MCX": {
+      "name": "MCX Gold (10 Grams)",
+      "type": "Precious Metal Commodity",
+      "52w_high": 81500.0,
+      "52w_low": 59800.0,
+      "current_benchmark": 78450.0,
+      "standard_lot": "100 grams / Mini 10 grams",
+      "global_correlation": "Inversely correlated with Real US Yields"
+    },
+    "SILVER_MCX": {
+      "name": "MCX Silver (1 Kg)",
+      "type": "Precious & Industrial Metal",
+      "52w_high": 102500.0,
+      "52w_low": 68000.0,
+      "current_benchmark": 94820.0,
+      "industrial_demand_share": "58% (Electronics, Solar PV, EVs)"
+    },
+    "CRUDEOIL_MCX": {
+      "name": "MCX Crude Oil (Barrel)",
+      "type": "Energy Commodity",
+      "52w_high": 7450.0,
+      "52w_low": 5420.0,
+      "current_benchmark": 6140.0,
+      "standard_lot": "100 Barrels"
+    },
+    "USDINR": {
+      "name": "USD / INR Currency Pair",
+      "type": "Forex Cross Currency",
+      "52w_high": 85.80,
+      "52w_low": 82.80,
+      "current_benchmark": 84.45,
+      "rbi_intervention_bias": "Active volatility smoothening"
+    }
+  }
+}

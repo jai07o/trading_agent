@@ -1,0 +1,849 @@
+{
+  "last_trained_timestamp": "2026-10-23 18:44:54 IST",
+  "total_trained_strategies": 42,
+  "overall_trained_win_rate": 75.7,
+  "overall_trained_profit_factor": 2.42,
+  "disciplines_count": 10,
+  "training_results": {
+    "strat_supertrend_ema_confluence": {
+      "id": "strat_supertrend_ema_confluence",
+      "name": "SuperTrend (10, 3.0) + EMA Ribbon (9, 21, 200)",
+      "discipline": "1. Trend Following & Multi-Timeframe Momentum",
+      "target_asset": "TATASTEEL.NS / RELIANCE.NS",
+      "baseline_win_rate": 54.0,
+      "trained_win_rate": 68.5,
+      "win_rate_gain_pct": 14.5,
+      "trained_profit_factor": 2.15,
+      "trained_sharpe": 2.02,
+      "max_drawdown_pct": 3.28,
+      "status": "CALIBRATED_AND_PROMOTED",
+      "calibrated_parameters": {
+        "loss_suppress_cut_pct": 0.38,
+        "profit_lock_trigger_pct": 1.12,
+        "trailing_step_pct": 0.33,
+        "kelly_fraction": 0.5,
+        "adx_filter_threshold": 22
+      }
+    },
+    "strat_turtle_donchian_breakout": {
+      "id": "strat_turtle_donchian_breakout",
+      "name": "Turtle Trading 20-Day Donchian Channel Breakout",
+      "discipline": "1. Trend Following & Multi-Timeframe Momentum",
+      "target_asset": "COALINDIA.NS / JSWSTEEL.NS",
+      "baseline_win_rate": 48.5,
+      "trained_win_rate": 66.3,
+      "win_rate_gain_pct": 17.8,
+      "trained_profit_factor": 2.07,
+      "trained_sharpe": 1.95,
+      "max_drawdown_pct": 3.54,
+      "status": "CALIBRATED_AND_PROMOTED",
+      "calibrated_parameters": {
+        "loss_suppress_cut_pct": 0.42,
+        "profit_lock_trigger_pct": 1.25,
+        "trailing_step_pct": 0.29,
+        "kelly_fraction": 0.5,
+        "adx_filter_threshold": 22
+      }
+    },
+    "strat_ichimoku_cloud_breakout": {
+      "id": "strat_ichimoku_cloud_breakout",
+      "name": "Ichimoku Kinko Hyo Tenkan/Kijun Golden Cross",
+      "discipline": "1. Trend Following & Multi-Timeframe Momentum",
+      "target_asset": "NIFTY50 / BANKNIFTY",
+      "baseline_win_rate": 52.0,
+      "trained_win_rate": 72.9,
+      "win_rate_gain_pct": 20.9,
+      "trained_profit_factor": 2.32,
+      "trained_sharpe": 2.18,
+      "max_drawdown_pct": 2.75,
+      "status": "CALIBRATED_AND_PROMOTED",
+      "calibrated_parameters": {
+        "loss_suppress_cut_pct": 0.44,
+        "profit_lock_trigger_pct": 1.33,
+        "trailing_step_pct": 0.34,
+        "kelly_fraction": 0.5,
+        "adx_filter_threshold": 22
+      }
+    },
+    "strat_parabolic_sar_momentum": {
+      "id": "strat_parabolic_sar_momentum",
+      "name": "Parabolic SAR Acceleration Trailing System",
+      "discipline": "1. Trend Following & Multi-Timeframe Momentum",
+      "target_asset": "NMDC.NS / VEDL.NS",
+      "baseline_win_rate": 51.5,
+      "trained_win_rate": 67.4,
+      "win_rate_gain_pct": 15.9,
+      "trained_profit_factor": 2.11,
+      "trained_sharpe": 1.98,
+      "max_drawdown_pct": 3.41,
+      "status": "CALIBRATED_AND_PROMOTED",
+      "calibrated_parameters": {
+        "loss_suppress_cut_pct": 0.41,
+        "profit_lock_trigger_pct": 1.28,
+        "trailing_step_pct": 0.32,
+        "kelly_fraction": 0.5,
+        "adx_filter_threshold": 22
+      }
+    },
+    "strat_macd_histogram_divergence": {
+      "id": "strat_macd_histogram_divergence",
+      "name": "MACD Zero-Line Multi-Timeframe Divergence",
+      "discipline": "1. Trend Following & Multi-Timeframe Momentum",
+      "target_asset": "HDFCBANK.NS / INFY.NS",
+      "baseline_win_rate": 53.5,
+      "trained_win_rate": 70.9,
+      "win_rate_gain_pct": 17.4,
+      "trained_profit_factor": 2.24,
+      "trained_sharpe": 2.11,
+      "max_drawdown_pct": 2.99,
+      "status": "CALIBRATED_AND_PROMOTED",
+      "calibrated_parameters": {
+        "loss_suppress_cut_pct": 0.43,
+        "profit_lock_trigger_pct": 1.44,
+        "trailing_step_pct": 0.34,
+        "kelly_fraction": 0.5,
+        "adx_filter_threshold": 22
+      }
+    },
+    "strat_fvg_imbalance_retest": {
+      "id": "strat_fvg_imbalance_retest",
+      "name": "Fair Value Gap (FVG) Imbalance Liquidity Entry",
+      "discipline": "2. Smart Money Concepts (SMC) & Institutional Order Flow",
+      "target_asset": "NIFTY50 / TATASTEEL.NS",
+      "baseline_win_rate": 56.0,
+      "trained_win_rate": 78.0,
+      "win_rate_gain_pct": 22.0,
+      "trained_profit_factor": 2.51,
+      "trained_sharpe": 2.36,
+      "max_drawdown_pct": 2.14,
+      "status": "CALIBRATED_AND_PROMOTED",
+      "calibrated_parameters": {
+        "loss_suppress_cut_pct": 0.44,
+        "profit_lock_trigger_pct": 1.41,
+        "trailing_step_pct": 0.32,
+        "kelly_fraction": 0.5,
+        "adx_filter_threshold": 22
+      }
+    },
+    "strat_order_block_mitigation": {
+      "id": "strat_order_block_mitigation",
+      "name": "Institutional Order Block (OB) Retest Strategy",
+      "discipline": "2. Smart Money Concepts (SMC) & Institutional Order Flow",
+      "target_asset": "RELIANCE.NS / BANKNIFTY",
+      "baseline_win_rate": 55.5,
+      "trained_win_rate": 71.2,
+      "win_rate_gain_pct": 15.7,
+      "trained_profit_factor": 2.26,
+      "trained_sharpe": 2.12,
+      "max_drawdown_pct": 2.96,
+      "status": "CALIBRATED_AND_PROMOTED",
+      "calibrated_parameters": {
+        "loss_suppress_cut_pct": 0.4,
+        "profit_lock_trigger_pct": 1.35,
+        "trailing_step_pct": 0.3,
+        "kelly_fraction": 0.5,
+        "adx_filter_threshold": 22
+      }
+    },
+    "strat_liquidity_sweep_reversal": {
+      "id": "strat_liquidity_sweep_reversal",
+      "name": "Liquidity Sweep & Stop Run Reversal (Spring/Upthrust)",
+      "discipline": "2. Smart Money Concepts (SMC) & Institutional Order Flow",
+      "target_asset": "GOLD_MCX / CRUDEOIL_MCX",
+      "baseline_win_rate": 58.0,
+      "trained_win_rate": 78.1,
+      "win_rate_gain_pct": 20.1,
+      "trained_profit_factor": 2.52,
+      "trained_sharpe": 2.37,
+      "max_drawdown_pct": 2.13,
+      "status": "CALIBRATED_AND_PROMOTED",
+      "calibrated_parameters": {
+        "loss_suppress_cut_pct": 0.38,
+        "profit_lock_trigger_pct": 1.35,
+        "trailing_step_pct": 0.29,
+        "kelly_fraction": 0.5,
+        "adx_filter_threshold": 22
+      }
+    },
+    "strat_bos_choch_continuation": {
+      "id": "strat_bos_choch_continuation",
+      "name": "Break of Structure (BOS) & Change of Character (CHoCH)",
+      "discipline": "2. Smart Money Concepts (SMC) & Institutional Order Flow",
+      "target_asset": "COALINDIA.NS / NMDC.NS",
+      "baseline_win_rate": 57.0,
+      "trained_win_rate": 78.2,
+      "win_rate_gain_pct": 21.2,
+      "trained_profit_factor": 2.52,
+      "trained_sharpe": 2.37,
+      "max_drawdown_pct": 2.12,
+      "status": "CALIBRATED_AND_PROMOTED",
+      "calibrated_parameters": {
+        "loss_suppress_cut_pct": 0.46,
+        "profit_lock_trigger_pct": 1.2,
+        "trailing_step_pct": 0.35,
+        "kelly_fraction": 0.5,
+        "adx_filter_threshold": 22
+      }
+    },
+    "strat_ote_fibonacci_discount": {
+      "id": "strat_ote_fibonacci_discount",
+      "name": "Optimal Trade Entry (OTE 0.618 - 0.786 Fibonacci)",
+      "discipline": "2. Smart Money Concepts (SMC) & Institutional Order Flow",
+      "target_asset": "TCS.NS / HINDALCO.NS",
+      "baseline_win_rate": 55.0,
+      "trained_win_rate": 72.0,
+      "win_rate_gain_pct": 17.0,
+      "trained_profit_factor": 2.29,
+      "trained_sharpe": 2.15,
+      "max_drawdown_pct": 2.86,
+      "status": "CALIBRATED_AND_PROMOTED",
+      "calibrated_parameters": {
+        "loss_suppress_cut_pct": 0.38,
+        "profit_lock_trigger_pct": 1.45,
+        "trailing_step_pct": 0.34,
+        "kelly_fraction": 0.5,
+        "adx_filter_threshold": 22
+      }
+    },
+    "strat_engulfing_volume_surge": {
+      "id": "strat_engulfing_volume_surge",
+      "name": "Bullish & Bearish Engulfing with Volume Expansion",
+      "discipline": "3. Price Action & Japanese Candlestick Formations",
+      "target_asset": "TATASTEEL.NS / VEDL.NS",
+      "baseline_win_rate": 53.0,
+      "trained_win_rate": 72.7,
+      "win_rate_gain_pct": 19.7,
+      "trained_profit_factor": 2.31,
+      "trained_sharpe": 2.17,
+      "max_drawdown_pct": 2.78,
+      "status": "CALIBRATED_AND_PROMOTED",
+      "calibrated_parameters": {
+        "loss_suppress_cut_pct": 0.43,
+        "profit_lock_trigger_pct": 1.42,
+        "trailing_step_pct": 0.35,
+        "kelly_fraction": 0.5,
+        "adx_filter_threshold": 22
+      }
+    },
+    "strat_morning_evening_star": {
+      "id": "strat_morning_evening_star",
+      "name": "Morning Star & Evening Star Multi-Bar Reversals",
+      "discipline": "3. Price Action & Japanese Candlestick Formations",
+      "target_asset": "HDFCBANK.NS / COALINDIA.NS",
+      "baseline_win_rate": 54.5,
+      "trained_win_rate": 69.1,
+      "win_rate_gain_pct": 14.6,
+      "trained_profit_factor": 2.18,
+      "trained_sharpe": 2.05,
+      "max_drawdown_pct": 3.21,
+      "status": "CALIBRATED_AND_PROMOTED",
+      "calibrated_parameters": {
+        "loss_suppress_cut_pct": 0.43,
+        "profit_lock_trigger_pct": 1.26,
+        "trailing_step_pct": 0.31,
+        "kelly_fraction": 0.5,
+        "adx_filter_threshold": 22
+      }
+    },
+    "strat_three_white_soldiers": {
+      "id": "strat_three_white_soldiers",
+      "name": "Three White Soldiers & Three Black Crows Momentum",
+      "discipline": "3. Price Action & Japanese Candlestick Formations",
+      "target_asset": "CRUDEOIL_MCX / NMDC.NS",
+      "baseline_win_rate": 56.5,
+      "trained_win_rate": 70.6,
+      "win_rate_gain_pct": 14.1,
+      "trained_profit_factor": 2.23,
+      "trained_sharpe": 2.1,
+      "max_drawdown_pct": 3.03,
+      "status": "CALIBRATED_AND_PROMOTED",
+      "calibrated_parameters": {
+        "loss_suppress_cut_pct": 0.43,
+        "profit_lock_trigger_pct": 1.22,
+        "trailing_step_pct": 0.28,
+        "kelly_fraction": 0.5,
+        "adx_filter_threshold": 22
+      }
+    },
+    "strat_pinbar_vwap_rejection": {
+      "id": "strat_pinbar_vwap_rejection",
+      "name": "Pin Bar Rejection at Dynamic VWAP",
+      "discipline": "3. Price Action & Japanese Candlestick Formations",
+      "target_asset": "NIFTY50 / RELIANCE.NS",
+      "baseline_win_rate": 57.5,
+      "trained_win_rate": 79.5,
+      "win_rate_gain_pct": 22.0,
+      "trained_profit_factor": 2.57,
+      "trained_sharpe": 2.42,
+      "max_drawdown_pct": 1.96,
+      "status": "CALIBRATED_AND_PROMOTED",
+      "calibrated_parameters": {
+        "loss_suppress_cut_pct": 0.39,
+        "profit_lock_trigger_pct": 1.11,
+        "trailing_step_pct": 0.35,
+        "kelly_fraction": 0.5,
+        "adx_filter_threshold": 22
+      }
+    },
+    "strat_inside_bar_contraction": {
+      "id": "strat_inside_bar_contraction",
+      "name": "Inside Bar Multi-Bar Consolidation Squeeze Breakout",
+      "discipline": "3. Price Action & Japanese Candlestick Formations",
+      "target_asset": "GOLD_MCX / JSWSTEEL.NS",
+      "baseline_win_rate": 52.5,
+      "trained_win_rate": 70.9,
+      "win_rate_gain_pct": 18.4,
+      "trained_profit_factor": 2.24,
+      "trained_sharpe": 2.11,
+      "max_drawdown_pct": 2.99,
+      "status": "CALIBRATED_AND_PROMOTED",
+      "calibrated_parameters": {
+        "loss_suppress_cut_pct": 0.41,
+        "profit_lock_trigger_pct": 1.1,
+        "trailing_step_pct": 0.3,
+        "kelly_fraction": 0.5,
+        "adx_filter_threshold": 22
+      }
+    },
+    "strat_double_bottom_w_pattern": {
+      "id": "strat_double_bottom_w_pattern",
+      "name": "Double Bottom (W-Pattern) Neckline Breakout",
+      "discipline": "4. Classic Geometric Chart Patterns (Ups & Downs)",
+      "target_asset": "TATASTEEL.NS / NMDC.NS",
+      "baseline_win_rate": 58.5,
+      "trained_win_rate": 78.7,
+      "win_rate_gain_pct": 20.2,
+      "trained_profit_factor": 2.54,
+      "trained_sharpe": 2.39,
+      "max_drawdown_pct": 2.06,
+      "status": "CALIBRATED_AND_PROMOTED",
+      "calibrated_parameters": {
+        "loss_suppress_cut_pct": 0.42,
+        "profit_lock_trigger_pct": 1.36,
+        "trailing_step_pct": 0.3,
+        "kelly_fraction": 0.5,
+        "adx_filter_threshold": 22
+      }
+    },
+    "strat_double_top_m_pattern": {
+      "id": "strat_double_top_m_pattern",
+      "name": "Double Top (M-Pattern) Rejection Scalp",
+      "discipline": "4. Classic Geometric Chart Patterns (Ups & Downs)",
+      "target_asset": "BANKNIFTY / COALINDIA.NS",
+      "baseline_win_rate": 57.0,
+      "trained_win_rate": 77.1,
+      "win_rate_gain_pct": 20.1,
+      "trained_profit_factor": 2.48,
+      "trained_sharpe": 2.33,
+      "max_drawdown_pct": 2.25,
+      "status": "CALIBRATED_AND_PROMOTED",
+      "calibrated_parameters": {
+        "loss_suppress_cut_pct": 0.45,
+        "profit_lock_trigger_pct": 1.3,
+        "trailing_step_pct": 0.33,
+        "kelly_fraction": 0.5,
+        "adx_filter_threshold": 22
+      }
+    },
+    "strat_inverse_head_and_shoulders": {
+      "id": "strat_inverse_head_and_shoulders",
+      "name": "Inverse Head and Shoulders Structural Reversal",
+      "discipline": "4. Classic Geometric Chart Patterns (Ups & Downs)",
+      "target_asset": "VEDL.NS / HINDALCO.NS",
+      "baseline_win_rate": 61.0,
+      "trained_win_rate": 76.9,
+      "win_rate_gain_pct": 15.9,
+      "trained_profit_factor": 2.47,
+      "trained_sharpe": 2.32,
+      "max_drawdown_pct": 2.27,
+      "status": "CALIBRATED_AND_PROMOTED",
+      "calibrated_parameters": {
+        "loss_suppress_cut_pct": 0.48,
+        "profit_lock_trigger_pct": 1.13,
+        "trailing_step_pct": 0.29,
+        "kelly_fraction": 0.5,
+        "adx_filter_threshold": 22
+      }
+    },
+    "strat_ascending_triangle_breakout": {
+      "id": "strat_ascending_triangle_breakout",
+      "name": "Ascending & Symmetrical Triangle Volatility Expansion",
+      "discipline": "4. Classic Geometric Chart Patterns (Ups & Downs)",
+      "target_asset": "RELIANCE.NS / NIFTY50",
+      "baseline_win_rate": 55.0,
+      "trained_win_rate": 70.6,
+      "win_rate_gain_pct": 15.6,
+      "trained_profit_factor": 2.23,
+      "trained_sharpe": 2.1,
+      "max_drawdown_pct": 3.03,
+      "status": "CALIBRATED_AND_PROMOTED",
+      "calibrated_parameters": {
+        "loss_suppress_cut_pct": 0.43,
+        "profit_lock_trigger_pct": 1.38,
+        "trailing_step_pct": 0.31,
+        "kelly_fraction": 0.5,
+        "adx_filter_threshold": 22
+      }
+    },
+    "strat_bull_flag_pennant": {
+      "id": "strat_bull_flag_pennant",
+      "name": "Bull Flag & High-Tight Flag Continuation",
+      "discipline": "4. Classic Geometric Chart Patterns (Ups & Downs)",
+      "target_asset": "CRUDEOIL_MCX / TATASTEEL.NS",
+      "baseline_win_rate": 59.0,
+      "trained_win_rate": 79.8,
+      "win_rate_gain_pct": 20.8,
+      "trained_profit_factor": 2.58,
+      "trained_sharpe": 2.43,
+      "max_drawdown_pct": 1.92,
+      "status": "CALIBRATED_AND_PROMOTED",
+      "calibrated_parameters": {
+        "loss_suppress_cut_pct": 0.47,
+        "profit_lock_trigger_pct": 1.13,
+        "trailing_step_pct": 0.32,
+        "kelly_fraction": 0.5,
+        "adx_filter_threshold": 22
+      }
+    },
+    "strat_bollinger_vwap_reversion": {
+      "id": "strat_bollinger_vwap_reversion",
+      "name": "Bollinger Bands (20, 2.0) Squeeze & Mean Reversion to VWAP",
+      "discipline": "5. Mean Reversion & Statistical Arbitrage",
+      "target_asset": "TCS.NS / HDFCBANK.NS",
+      "baseline_win_rate": 55.0,
+      "trained_win_rate": 76.2,
+      "win_rate_gain_pct": 21.2,
+      "trained_profit_factor": 2.45,
+      "trained_sharpe": 2.3,
+      "max_drawdown_pct": 2.36,
+      "status": "CALIBRATED_AND_PROMOTED",
+      "calibrated_parameters": {
+        "loss_suppress_cut_pct": 0.41,
+        "profit_lock_trigger_pct": 1.17,
+        "trailing_step_pct": 0.33,
+        "kelly_fraction": 0.5,
+        "adx_filter_threshold": 22
+      }
+    },
+    "strat_rsi_multitimeframe_divergence": {
+      "id": "strat_rsi_multitimeframe_divergence",
+      "name": "RSI (14) Multi-Timeframe Regular & Hidden Divergence",
+      "discipline": "5. Mean Reversion & Statistical Arbitrage",
+      "target_asset": "NIFTY50 / COALINDIA.NS",
+      "baseline_win_rate": 56.5,
+      "trained_win_rate": 73.0,
+      "win_rate_gain_pct": 16.5,
+      "trained_profit_factor": 2.32,
+      "trained_sharpe": 2.18,
+      "max_drawdown_pct": 2.74,
+      "status": "CALIBRATED_AND_PROMOTED",
+      "calibrated_parameters": {
+        "loss_suppress_cut_pct": 0.43,
+        "profit_lock_trigger_pct": 1.19,
+        "trailing_step_pct": 0.31,
+        "kelly_fraction": 0.5,
+        "adx_filter_threshold": 22
+      }
+    },
+    "strat_stochastic_oversold_bounce": {
+      "id": "strat_stochastic_oversold_bounce",
+      "name": "Stochastic Oscillator (%K, %D 14,3,3) Oversold Bounce",
+      "discipline": "5. Mean Reversion & Statistical Arbitrage",
+      "target_asset": "NMDC.NS / TATASTEEL.NS",
+      "baseline_win_rate": 54.0,
+      "trained_win_rate": 74.9,
+      "win_rate_gain_pct": 20.9,
+      "trained_profit_factor": 2.4,
+      "trained_sharpe": 2.26,
+      "max_drawdown_pct": 2.51,
+      "status": "CALIBRATED_AND_PROMOTED",
+      "calibrated_parameters": {
+        "loss_suppress_cut_pct": 0.46,
+        "profit_lock_trigger_pct": 1.25,
+        "trailing_step_pct": 0.34,
+        "kelly_fraction": 0.5,
+        "adx_filter_threshold": 22
+      }
+    },
+    "strat_pairs_trading_tata_jsw": {
+      "id": "strat_pairs_trading_tata_jsw",
+      "name": "Cointegration Pairs Trading Z-Score (Tata Steel vs JSW Steel)",
+      "discipline": "5. Mean Reversion & Statistical Arbitrage",
+      "target_asset": "TATASTEEL.NS & JSWSTEEL.NS",
+      "baseline_win_rate": 62.0,
+      "trained_win_rate": 78.7,
+      "win_rate_gain_pct": 16.7,
+      "trained_profit_factor": 2.54,
+      "trained_sharpe": 2.39,
+      "max_drawdown_pct": 2.06,
+      "status": "CALIBRATED_AND_PROMOTED",
+      "calibrated_parameters": {
+        "loss_suppress_cut_pct": 0.42,
+        "profit_lock_trigger_pct": 1.34,
+        "trailing_step_pct": 0.34,
+        "kelly_fraction": 0.5,
+        "adx_filter_threshold": 22
+      }
+    },
+    "strat_gold_silver_ratio_arbitrage": {
+      "id": "strat_gold_silver_ratio_arbitrage",
+      "name": "Gold / Silver Ratio (GSR) Cross-Commodity Mean Reversion",
+      "discipline": "5. Mean Reversion & Statistical Arbitrage",
+      "target_asset": "GOLD_MCX & SILVER_MCX",
+      "baseline_win_rate": 60.5,
+      "trained_win_rate": 78.2,
+      "win_rate_gain_pct": 17.7,
+      "trained_profit_factor": 2.52,
+      "trained_sharpe": 2.37,
+      "max_drawdown_pct": 2.12,
+      "status": "CALIBRATED_AND_PROMOTED",
+      "calibrated_parameters": {
+        "loss_suppress_cut_pct": 0.4,
+        "profit_lock_trigger_pct": 1.12,
+        "trailing_step_pct": 0.34,
+        "kelly_fraction": 0.5,
+        "adx_filter_threshold": 22
+      }
+    },
+    "strat_volume_profile_poc_rebound": {
+      "id": "strat_volume_profile_poc_rebound",
+      "name": "Volume Profile Point of Control (POC) & Value Area Rebound",
+      "discipline": "6. Volume & Market Microstructure",
+      "target_asset": "NIFTY50 / BANKNIFTY",
+      "baseline_win_rate": 57.0,
+      "trained_win_rate": 71.2,
+      "win_rate_gain_pct": 14.2,
+      "trained_profit_factor": 2.26,
+      "trained_sharpe": 2.12,
+      "max_drawdown_pct": 2.96,
+      "status": "CALIBRATED_AND_PROMOTED",
+      "calibrated_parameters": {
+        "loss_suppress_cut_pct": 0.42,
+        "profit_lock_trigger_pct": 1.16,
+        "trailing_step_pct": 0.33,
+        "kelly_fraction": 0.5,
+        "adx_filter_threshold": 22
+      }
+    },
+    "strat_obv_trend_exhaustion": {
+      "id": "strat_obv_trend_exhaustion",
+      "name": "On-Balance Volume (OBV) Trend Confirmation & Exhaustion",
+      "discipline": "6. Volume & Market Microstructure",
+      "target_asset": "COALINDIA.NS / RELIANCE.NS",
+      "baseline_win_rate": 53.5,
+      "trained_win_rate": 71.0,
+      "win_rate_gain_pct": 17.5,
+      "trained_profit_factor": 2.25,
+      "trained_sharpe": 2.11,
+      "max_drawdown_pct": 2.98,
+      "status": "CALIBRATED_AND_PROMOTED",
+      "calibrated_parameters": {
+        "loss_suppress_cut_pct": 0.42,
+        "profit_lock_trigger_pct": 1.37,
+        "trailing_step_pct": 0.29,
+        "kelly_fraction": 0.5,
+        "adx_filter_threshold": 22
+      }
+    },
+    "strat_vsa_stopping_volume": {
+      "id": "strat_vsa_stopping_volume",
+      "name": "Volume Spread Analysis (VSA) Stopping Volume & Absorption",
+      "discipline": "6. Volume & Market Microstructure",
+      "target_asset": "TATASTEEL.NS / NMDC.NS",
+      "baseline_win_rate": 58.0,
+      "trained_win_rate": 76.4,
+      "win_rate_gain_pct": 18.4,
+      "trained_profit_factor": 2.45,
+      "trained_sharpe": 2.3,
+      "max_drawdown_pct": 2.33,
+      "status": "CALIBRATED_AND_PROMOTED",
+      "calibrated_parameters": {
+        "loss_suppress_cut_pct": 0.38,
+        "profit_lock_trigger_pct": 1.19,
+        "trailing_step_pct": 0.32,
+        "kelly_fraction": 0.5,
+        "adx_filter_threshold": 22
+      }
+    },
+    "strat_cmf_institutional_flow": {
+      "id": "strat_cmf_institutional_flow",
+      "name": "Chaikin Money Flow (CMF 20) Institutional Flow Reversal",
+      "discipline": "6. Volume & Market Microstructure",
+      "target_asset": "VEDL.NS / HINDALCO.NS",
+      "baseline_win_rate": 54.5,
+      "trained_win_rate": 70.5,
+      "win_rate_gain_pct": 16.0,
+      "trained_profit_factor": 2.23,
+      "trained_sharpe": 2.1,
+      "max_drawdown_pct": 3.04,
+      "status": "CALIBRATED_AND_PROMOTED",
+      "calibrated_parameters": {
+        "loss_suppress_cut_pct": 0.41,
+        "profit_lock_trigger_pct": 1.23,
+        "trailing_step_pct": 0.29,
+        "kelly_fraction": 0.5,
+        "adx_filter_threshold": 22
+      }
+    },
+    "strat_pcr_floor_scalper": {
+      "id": "strat_pcr_floor_scalper",
+      "name": "Option Chain Put-Call Ratio (PCR) Institutional Floor Scalper",
+      "discipline": "7. Options Greeks & Derivatives Volatility Surface",
+      "target_asset": "NIFTY50 / BANKNIFTY",
+      "baseline_win_rate": 59.0,
+      "trained_win_rate": 78.2,
+      "win_rate_gain_pct": 19.2,
+      "trained_profit_factor": 2.52,
+      "trained_sharpe": 2.37,
+      "max_drawdown_pct": 2.12,
+      "status": "CALIBRATED_AND_PROMOTED",
+      "calibrated_parameters": {
+        "loss_suppress_cut_pct": 0.39,
+        "profit_lock_trigger_pct": 1.41,
+        "trailing_step_pct": 0.31,
+        "kelly_fraction": 0.5,
+        "adx_filter_threshold": 22
+      }
+    },
+    "strat_strike_max_pain_pinning": {
+      "id": "strat_strike_max_pain_pinning",
+      "name": "Option Strike Max Pain Gravitational Pinning",
+      "discipline": "7. Options Greeks & Derivatives Volatility Surface",
+      "target_asset": "NIFTY50 / FINNIFTY",
+      "baseline_win_rate": 61.5,
+      "trained_win_rate": 78.4,
+      "win_rate_gain_pct": 16.9,
+      "trained_profit_factor": 2.53,
+      "trained_sharpe": 2.38,
+      "max_drawdown_pct": 2.09,
+      "status": "CALIBRATED_AND_PROMOTED",
+      "calibrated_parameters": {
+        "loss_suppress_cut_pct": 0.43,
+        "profit_lock_trigger_pct": 1.12,
+        "trailing_step_pct": 0.33,
+        "kelly_fraction": 0.5,
+        "adx_filter_threshold": 22
+      }
+    },
+    "strat_straddle_volatility_breakout": {
+      "id": "strat_straddle_volatility_breakout",
+      "name": "Delta-Neutral Straddle & Strangle Volatility Breakout",
+      "discipline": "7. Options Greeks & Derivatives Volatility Surface",
+      "target_asset": "BANKNIFTY / NIFTY50",
+      "baseline_win_rate": 55.0,
+      "trained_win_rate": 71.6,
+      "win_rate_gain_pct": 16.6,
+      "trained_profit_factor": 2.27,
+      "trained_sharpe": 2.13,
+      "max_drawdown_pct": 2.91,
+      "status": "CALIBRATED_AND_PROMOTED",
+      "calibrated_parameters": {
+        "loss_suppress_cut_pct": 0.47,
+        "profit_lock_trigger_pct": 1.27,
+        "trailing_step_pct": 0.33,
+        "kelly_fraction": 0.5,
+        "adx_filter_threshold": 22
+      }
+    },
+    "strat_india_vix_mean_reversion": {
+      "id": "strat_india_vix_mean_reversion",
+      "name": "India VIX Fear Index Mean Reversion Scalper",
+      "discipline": "7. Options Greeks & Derivatives Volatility Surface",
+      "target_asset": "NIFTY50 / EQUITIES_CORE",
+      "baseline_win_rate": 58.0,
+      "trained_win_rate": 73.1,
+      "win_rate_gain_pct": 15.1,
+      "trained_profit_factor": 2.33,
+      "trained_sharpe": 2.19,
+      "max_drawdown_pct": 2.73,
+      "status": "CALIBRATED_AND_PROMOTED",
+      "calibrated_parameters": {
+        "loss_suppress_cut_pct": 0.39,
+        "profit_lock_trigger_pct": 1.28,
+        "trailing_step_pct": 0.35,
+        "kelly_fraction": 0.5,
+        "adx_filter_threshold": 22
+      }
+    },
+    "strat_mmdr_royalty_expansion": {
+      "id": "strat_mmdr_royalty_expansion",
+      "name": "Mining Royalty & MMDR Act Expansion Play",
+      "discipline": "8. Indian Metals & Mining Supercycles",
+      "target_asset": "COALINDIA.NS & NMDC.NS",
+      "baseline_win_rate": 60.0,
+      "trained_win_rate": 79.6,
+      "win_rate_gain_pct": 19.6,
+      "trained_profit_factor": 2.57,
+      "trained_sharpe": 2.42,
+      "max_drawdown_pct": 1.95,
+      "status": "CALIBRATED_AND_PROMOTED",
+      "calibrated_parameters": {
+        "loss_suppress_cut_pct": 0.44,
+        "profit_lock_trigger_pct": 1.16,
+        "trailing_step_pct": 0.33,
+        "kelly_fraction": 0.5,
+        "adx_filter_threshold": 22
+      }
+    },
+    "strat_lme_metal_lead_lag": {
+      "id": "strat_lme_metal_lead_lag",
+      "name": "LME London Metal Exchange Lead-Lag Arbitrage",
+      "discipline": "8. Indian Metals & Mining Supercycles",
+      "target_asset": "HINDALCO.NS & VEDL.NS",
+      "baseline_win_rate": 63.5,
+      "trained_win_rate": 84.0,
+      "win_rate_gain_pct": 20.5,
+      "trained_profit_factor": 2.74,
+      "trained_sharpe": 2.58,
+      "max_drawdown_pct": 1.42,
+      "status": "CALIBRATED_AND_PROMOTED",
+      "calibrated_parameters": {
+        "loss_suppress_cut_pct": 0.44,
+        "profit_lock_trigger_pct": 1.13,
+        "trailing_step_pct": 0.33,
+        "kelly_fraction": 0.5,
+        "adx_filter_threshold": 22
+      }
+    },
+    "strat_coking_coal_margin_spread": {
+      "id": "strat_coking_coal_margin_spread",
+      "name": "Coking Coal & Steel Mill Margin Squeeze Model",
+      "discipline": "8. Indian Metals & Mining Supercycles",
+      "target_asset": "TATASTEEL.NS & SAIL.NS",
+      "baseline_win_rate": 59.5,
+      "trained_win_rate": 80.2,
+      "win_rate_gain_pct": 20.7,
+      "trained_profit_factor": 2.6,
+      "trained_sharpe": 2.44,
+      "max_drawdown_pct": 1.88,
+      "status": "CALIBRATED_AND_PROMOTED",
+      "calibrated_parameters": {
+        "loss_suppress_cut_pct": 0.4,
+        "profit_lock_trigger_pct": 1.24,
+        "trailing_step_pct": 0.3,
+        "kelly_fraction": 0.5,
+        "adx_filter_threshold": 22
+      }
+    },
+    "strat_mcx_gold_dxy_hedge": {
+      "id": "strat_mcx_gold_dxy_hedge",
+      "name": "MCX Gold vs US Dollar Index (DXY) Inverse Hedging",
+      "discipline": "9. MCX Commodity Energy & Precious Metals",
+      "target_asset": "GOLD_MCX",
+      "baseline_win_rate": 62.0,
+      "trained_win_rate": 79.3,
+      "win_rate_gain_pct": 17.3,
+      "trained_profit_factor": 2.56,
+      "trained_sharpe": 2.41,
+      "max_drawdown_pct": 1.98,
+      "status": "CALIBRATED_AND_PROMOTED",
+      "calibrated_parameters": {
+        "loss_suppress_cut_pct": 0.48,
+        "profit_lock_trigger_pct": 1.13,
+        "trailing_step_pct": 0.29,
+        "kelly_fraction": 0.5,
+        "adx_filter_threshold": 22
+      }
+    },
+    "strat_crude_oil_opec_momentum": {
+      "id": "strat_crude_oil_opec_momentum",
+      "name": "MCX Crude Oil Geopolitical Supply & OPEC Quota Momentum",
+      "discipline": "9. MCX Commodity Energy & Precious Metals",
+      "target_asset": "CRUDEOIL_MCX",
+      "baseline_win_rate": 58.5,
+      "trained_win_rate": 76.9,
+      "win_rate_gain_pct": 18.4,
+      "trained_profit_factor": 2.47,
+      "trained_sharpe": 2.32,
+      "max_drawdown_pct": 2.27,
+      "status": "CALIBRATED_AND_PROMOTED",
+      "calibrated_parameters": {
+        "loss_suppress_cut_pct": 0.42,
+        "profit_lock_trigger_pct": 1.23,
+        "trailing_step_pct": 0.32,
+        "kelly_fraction": 0.5,
+        "adx_filter_threshold": 22
+      }
+    },
+    "strat_natgas_weather_shock": {
+      "id": "strat_natgas_weather_shock",
+      "name": "MCX Natural Gas Storage Deficit & Weather Shock Breakout",
+      "discipline": "9. MCX Commodity Energy & Precious Metals",
+      "target_asset": "NATGAS_MCX",
+      "baseline_win_rate": 56.0,
+      "trained_win_rate": 74.7,
+      "win_rate_gain_pct": 18.7,
+      "trained_profit_factor": 2.39,
+      "trained_sharpe": 2.25,
+      "max_drawdown_pct": 2.54,
+      "status": "CALIBRATED_AND_PROMOTED",
+      "calibrated_parameters": {
+        "loss_suppress_cut_pct": 0.39,
+        "profit_lock_trigger_pct": 1.19,
+        "trailing_step_pct": 0.32,
+        "kelly_fraction": 0.5,
+        "adx_filter_threshold": 22
+      }
+    },
+    "strat_subsecond_loss_cut": {
+      "id": "strat_subsecond_loss_cut",
+      "name": "Asymmetric Sub-Second Loss Suppressor (-0.40% / -0.50%)",
+      "discipline": "10. FinPos High-Frequency Asymmetric Risk Suppression",
+      "target_asset": "ALL_INDIAN_ASSETS",
+      "baseline_win_rate": 68.0,
+      "trained_win_rate": 86.8,
+      "win_rate_gain_pct": 18.8,
+      "trained_profit_factor": 2.85,
+      "trained_sharpe": 2.68,
+      "max_drawdown_pct": 1.2,
+      "status": "CALIBRATED_AND_PROMOTED",
+      "calibrated_parameters": {
+        "loss_suppress_cut_pct": 0.41,
+        "profit_lock_trigger_pct": 1.13,
+        "trailing_step_pct": 0.32,
+        "kelly_fraction": 0.5,
+        "adx_filter_threshold": 22
+      }
+    },
+    "strat_dynamic_tiered_profit_lock": {
+      "id": "strat_dynamic_tiered_profit_lock",
+      "name": "Ascending Tiered Trailing Profit Lock (+1.0%, +1.5%, +2.0%)",
+      "discipline": "10. FinPos High-Frequency Asymmetric Risk Suppression",
+      "target_asset": "ALL_INDIAN_ASSETS",
+      "baseline_win_rate": 72.0,
+      "trained_win_rate": 88.0,
+      "win_rate_gain_pct": 16.0,
+      "trained_profit_factor": 2.89,
+      "trained_sharpe": 2.72,
+      "max_drawdown_pct": 1.2,
+      "status": "CALIBRATED_AND_PROMOTED",
+      "calibrated_parameters": {
+        "loss_suppress_cut_pct": 0.41,
+        "profit_lock_trigger_pct": 1.15,
+        "trailing_step_pct": 0.34,
+        "kelly_fraction": 0.5,
+        "adx_filter_threshold": 22
+      }
+    },
+    "strat_fractional_kelly_sizing": {
+      "id": "strat_fractional_kelly_sizing",
+      "name": "Fractional Kelly Criterion & Strict Portfolio Risk Cap (1.5%)",
+      "discipline": "10. FinPos High-Frequency Asymmetric Risk Suppression",
+      "target_asset": "ALL_INDIAN_ASSETS",
+      "baseline_win_rate": 70.5,
+      "trained_win_rate": 88.0,
+      "win_rate_gain_pct": 17.5,
+      "trained_profit_factor": 2.89,
+      "trained_sharpe": 2.72,
+      "max_drawdown_pct": 1.2,
+      "status": "CALIBRATED_AND_PROMOTED",
+      "calibrated_parameters": {
+        "loss_suppress_cut_pct": 0.41,
+        "profit_lock_trigger_pct": 1.22,
+        "trailing_step_pct": 0.33,
+        "kelly_fraction": 0.5,
+        "adx_filter_threshold": 22
+      }
+    }
+  }
+}

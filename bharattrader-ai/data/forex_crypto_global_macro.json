@@ -1,0 +1,61 @@
+{
+  "dataset_metadata": {
+    "title": "Global Macro, Forex, Cross-Currency & Digital Asset Framework",
+    "updated": "2026-10",
+    "jurisdiction_notes": "Indian Foreign Exchange Management Act (FEMA) & VDA Tax Schedule"
+  },
+  "forex_currency_crosses": {
+    "USDINR": {
+      "pair": "US Dollar / Indian Rupee",
+      "typical_range": [82.50, 85.50],
+      "rbi_intervention_mechanics": "Reserve Bank of India utilizes $650B+ foreign exchange reserves for non-deliverable forward (NDF) and spot market intervention to curb non-fundamental volatility",
+      "fii_equity_sensitivity": "INR weakness of >0.5% in a day typically triggers -800 Cr to -1500 Cr FII equity cash outflows",
+      "importer_hedging_ratio": "Standard 60-70% hedging ratio above 84.00"
+    },
+    "EURINR": {
+      "pair": "Euro / Indian Rupee",
+      "correlation_with_usd": "Inverse to DXY Dollar Index",
+      "trade_impact": "Directly impacts European export realization for Indian auto ancillaries, textiles, and chemicals"
+    },
+    "GBPINR": {
+      "pair": "British Pound / Indian Rupee",
+      "sensitivity": "Bank of England rate decisions, Tata Motors JLR UK revenue repatriation translation"
+    },
+    "JPYINR": {
+      "pair": "Japanese Yen / Indian Rupee",
+      "yen_carry_trade_risk": "Bank of Japan rate hikes trigger global carry-trade unwinds, causing sharp short-term volatility spikes across emerging market equities"
+    }
+  },
+  "us_fed_and_global_yields": {
+    "us_10y_treasury_regimes": [
+      {"yield_range": "< 3.5%", "emerging_market_impact": "Strong capital inflows into Indian equities, high PE multiple expansion"},
+      {"yield_range": "3.5% - 4.5%", "emerging_market_impact": "Balanced valuation regime, earnings-driven market leadership"},
+      {"yield_range": "> 4.5%", "emerging_market_impact": "Dollar strength, FII rotation from Emerging Markets into risk-free US paper"}
+    ],
+    "crude_oil_indian_basket_discount": {
+      "brent_benchmark": "Dated Brent ICE",
+      "indian_basket_composition": "Sour grade (Oman & Dubai average) 75.6% + Sweet grade (Brent dated) 24.4%",
+      "refinery_margins": "Gross Refining Margins (GRMs) for Reliance Jamnagar and IOCL/BPCL tracked in USD/bbl"
+    }
+  },
+  "digital_assets_and_crypto_india_compliance": {
+    "regulatory_status": "FIU-IND (Financial Intelligence Unit - India) Compliant Virtual Digital Assets (VDA)",
+    "tax_provisions": {
+      "section_115bbh": "Flat 30% tax on gains from VDA transfers (No deduction for expenses other than acquisition cost, no loss set-off against other income)",
+      "section_194s": "1% TDS deducted at source on every transfer exceeding Rs 50,000 in a financial year"
+    },
+    "market_instruments": {
+      "BTCINR": {
+        "asset": "Bitcoin (INR Reference)",
+        "trading_cycle": "24 hours / 7 days continuous liquidity",
+        "volatility_multiplier_vs_nifty": "4.2x",
+        "correlation_with_nasdaq": "+0.68"
+      },
+      "ETHINR": {
+        "asset": "Ethereum (INR Reference)",
+        "smart_contract_utility": "Gas fees, DeFi liquidity layers, Layer 2 settlement",
+        "volatility_multiplier_vs_nifty": "5.1x"
+      }
+    }
+  }
+}

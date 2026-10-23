@@ -1,0 +1,112 @@
+{
+  "dataset_metadata": {
+    "title": "Indian Corporate Fundamentals, Indices Composition & Valuation Multiples",
+    "market_benchmark": "NSE / BSE India",
+    "updated": "2026-10"
+  },
+  "index_weightages": {
+    "NIFTY_50_SECTOR_BREAKDOWN": {
+      "Financial Services (Banks & NBFCs)": "32.8%",
+      "Information Technology (IT)": "13.6%",
+      "Oil, Gas & Consumable Fuels": "11.4%",
+      "Automobile & Auto Components": "7.8%",
+      "Fast Moving Consumer Goods (FMCG)": "8.2%",
+      "Metals & Mining": "4.5%",
+      "Healthcare & Pharma": "4.1%",
+      "Construction & Capital Goods": "4.3%",
+      "Consumer Services & Telecom": "7.3%",
+      "Others (Chemicals, Power)": "6.0%"
+    },
+    "BANK_NIFTY_CONSTITUENT_WEIGHTS": {
+      "HDFC Bank": "28.5%",
+      "ICICI Bank": "23.4%",
+      "State Bank of India (SBI)": "10.2%",
+      "Kotak Mahindra Bank": "9.8%",
+      "Axis Bank": "9.4%",
+      "IndusInd Bank": "5.6%",
+      "Bank of Baroda": "3.1%",
+      "Punjab National Bank (PNB)": "2.8%",
+      "Federal Bank": "2.6%",
+      "IDFC First Bank": "2.4%",
+      "AU Small Finance Bank": "1.2%",
+      "Bandhan Bank": "1.0%"
+    },
+    "NIFTY_METAL_CONSTITUENT_WEIGHTS": {
+      "Tata Steel": "24.6%",
+      "Hindalco Industries": "18.8%",
+      "JSW Steel": "17.5%",
+      "Vedanta Limited": "12.4%",
+      "Jindal Steel & Power (JSPL)": "8.2%",
+      "Coal India": "7.5%",
+      "NMDC Limited": "4.2%",
+      "National Aluminium (NALCO)": "2.8%",
+      "Hindustan Zinc": "2.2%",
+      "Steel Authority of India (SAIL)": "1.8%"
+    }
+  },
+  "largecap_fundamental_metrics": {
+    "RELIANCE": {
+      "pe_ratio": 26.4,
+      "pb_ratio": 2.4,
+      "roe_pct": 9.8,
+      "ev_ebitda": 12.8,
+      "debt_equity": 0.38,
+      "core_thesis": "Petrochem cash cow funding retail expansion and 5G digital ecosystem monetization"
+    },
+    "TCS": {
+      "pe_ratio": 29.8,
+      "pb_ratio": 13.2,
+      "roe_pct": 51.4,
+      "ev_ebitda": 21.2,
+      "debt_equity": 0.0,
+      "operating_margin_pct": 24.5,
+      "core_thesis": "Net cash zero-debt fortress with massive enterprise AI and Cloud transformation deal pipeline"
+    },
+    "HDFCBANK": {
+      "pe_ratio": 18.2,
+      "pb_ratio": 2.6,
+      "roe_pct": 16.5,
+      "net_interest_margin_pct": 3.65,
+      "gross_npa_pct": 1.24,
+      "credit_deposit_ratio": "86%",
+      "core_thesis": "Post-merger deposit accretion stabilizing CASA ratio; valuation at historical multi-year discount"
+    },
+    "ICICIBANK": {
+      "pe_ratio": 17.5,
+      "pb_ratio": 3.1,
+      "roe_pct": 18.2,
+      "net_interest_margin_pct": 4.40,
+      "gross_npa_pct": 2.15,
+      "core_thesis": "Industry-leading RoA (2.3%) and best-in-class risk underwriting discipline"
+    },
+    "SBIN": {
+      "pe_ratio": 10.4,
+      "pb_ratio": 1.4,
+      "roe_pct": 16.8,
+      "net_interest_margin_pct": 3.25,
+      "gross_npa_pct": 2.24,
+      "core_thesis": "Largest domestic lender with dominant retail deposit franchise and sovereign credit quality"
+    },
+    "INFY": {
+      "pe_ratio": 27.2,
+      "pb_ratio": 8.4,
+      "roe_pct": 32.1,
+      "operating_margin_pct": 21.2,
+      "core_thesis": "Large mega-deal pipeline across BFSI, manufacturing, and generative AI enterprise integrations"
+    },
+    "LT": {
+      "pe_ratio": 34.2,
+      "pb_ratio": 4.8,
+      "roe_pct": 15.6,
+      "order_book_inr_lakh_cr": 4.85,
+      "core_thesis": "Direct proxy for Indian and Middle-East infrastructure capex and green hydrogen investments"
+    },
+    "ITC": {
+      "pe_ratio": 25.8,
+      "pb_ratio": 7.6,
+      "roe_pct": 29.5,
+      "dividend_yield_pct": 3.45,
+      "core_thesis": "Resilient cigarette cash generator funding rapid FMCG non-cigarette scaling and hotel demerger"
+    }
+  }
+}

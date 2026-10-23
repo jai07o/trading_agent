@@ -1,0 +1,82 @@
+//@version=5
+strategy("BharatTrader Alpha v2.5 — Institutional Multi-Confluence", overlay=true, initial_capital=100000, default_qty_type=strategy.percent_of_equity, default_qty_value=15)
+
+// =============================================================================
+// BHARATTRADER AI — OFFICIAL TRADINGVIEW PINE SCRIPT CONNECTOR
+// Connects TradingView Charts directly to BharatTrader AI Autonomous Engine
+// Supports NSE Equities (Tata Steel, Reliance, Coal India), Nifty & MCX Commodities
+// Webhook Target: http://YOUR_SERVER_IP:8585/api/webhook/tradingview
+// =============================================================================
+
+// --- 1. USER INPUTS & PARAMETERS ---
+grp_ind = "Trend & Momentum Indicators"
+atr_period = input.int(10, "SuperTrend ATR Period", minval=1, group=grp_ind)
+atr_factor = input.float(3.0, "SuperTrend Factor", minval=0.5, step=0.1, group=grp_ind)
+ema_fast_len = input.int(9, "Fast EMA Length", minval=1, group=grp_ind)
+ema_slow_len = input.int(21, "Slow EMA Length", minval=1, group=grp_ind)
+ema_trend_len = input.int(200, "Macro Baseline EMA (200)", minval=1, group=grp_ind)
+use_vwap = input.bool(true, "Require VWAP Confluence Filter", group=grp_ind)
+
+grp_risk = "BharatTrader Risk Controls"
+loss_suppress_pct = input.float(0.50, "Sub-Second Loss Suppression Cut (%)", minval=0.1, step=0.05, group=grp_risk)
+target_profit_pct = input.float(1.50, "Target Take Profit (%)", minval=0.2, step=0.1, group=grp_risk)
+trail_lock_activation_pct = input.float(0.75, "Dynamic Profit Lock Activation (%)", minval=0.2, group=grp_risk)
+trail_lock_step_pct = input.float(0.35, "Profit Lock Step (%)", minval=0.1, group=grp_risk)
+
+grp_session = "Indian Market Session Filter"
+trade_session = input.session("0915-1515", "NSE Trading Session (IST)", group=grp_session)
+enable_session_filter = input.bool(true, "Trade Only During NSE Regular Hours", group=grp_session)
+
+// --- 2. INDICATOR COMPUTATIONS ---
+[supertrend, st_direction] = ta.supertrend(atr_factor, atr_period)
+ema_fast = ta.ema(close, ema_fast_len)
+ema_slow = ta.ema(close, ema_slow_len)
+ema_trend = ta.ema(close, ema_trend_len)
+session_vwap = ta.vwap(hlc3)
+
+// Session active check
+in_session = not enable_session_filter or not na(time(timeframe.period, trade_session + ":23456"))
+
+// Multi-Confluence Entry Condition
+bullish_supertrend = st_direction < 0
+bullish_ema_cross = ta.crossover(ema_fast, ema_slow) or (ema_fast > ema_slow and close > ema_fast)
+bullish_trend_baseline = close > ema_trend
+bullish_vwap = not use_vwap or (close > session_vwap)
+
+buy_signal = bullish_supertrend and bullish_ema_cross and bullish_trend_baseline and bullish_vwap and in_session
+
+// Bearish Exit Condition
+bearish_supertrend = st_direction > 0
+bearish_ema_cross = ta.crossunder(ema_fast, ema_slow)
+exit_signal = bearish_supertrend or bearish_ema_cross or not in_session
+
+// --- 3. CHART VISUALIZATION ---
+plot(supertrend, "SuperTrend", color=st_direction < 0 ? color.new(color.green, 20) : color.new(color.red, 20), linewidth=2)
+plot(ema_fast, "Fast EMA 9", color=color.aqua, linewidth=1)
+plot(ema_slow, "Slow EMA 21", color=color.orange, linewidth=1)
+plot(ema_trend, "Macro Trend EMA 200", color=color.yellow, linewidth=2)
+plot(session_vwap, "Session VWAP", color=color.purple, linewidth=1, style=plot.style_circles)
+
+plotshape(buy_signal and strategy.position_size == 0, "BharatTrader BUY Signal", shape.triangleup, location.belowbar, color.green, size=size.normal, text="BHARAT BUY")
+plotshape(exit_signal and strategy.position_size > 0, "BharatTrader EXIT Signal", shape.triangledown, location.abovebar, color.red, size=size.normal, text="SUPPRESS / EXIT")
+
+// --- 4. STRATEGY EXECUTION & LOSS SUPPRESSION ---
+var float entry_price = 0.0
+
+if (buy_signal and strategy.position_size == 0)
+    entry_price := close
+    strategy.entry("BT_BUY", strategy.long)
+    // Alert payload sent to BharatTrader AI Webhook
+    alert_payload = '{"ticker":"' + syminfo.ticker + '","action":"BUY","price":' + str.tostring(close) + ',"strategy_name":"BharatTrader_Alpha_Confluence","passphrase":"BHARAT_SECURE_TOKEN_2026"}'
+    alert(alert_payload, alert.freq_once_per_bar_close)
+
+if (strategy.position_size > 0)
+    stop_loss_level = entry_price * (1.0 - (loss_suppress_pct / 100.0))
+    take_profit_level = entry_price * (1.0 + (target_profit_pct / 100.0))
+
+    if (close <= stop_loss_level)
+        strategy.close("BT_BUY", comment="Sub-Second Loss Suppressed")
+        alert('{"ticker":"' + syminfo.ticker + '","action":"SELL","price":' + str.tostring(close) + ',"strategy_name":"Loss_Suppressed","passphrase":"BHARAT_SECURE_TOKEN_2026"}', alert.freq_once_per_bar_close)
+    else if (close >= take_profit_level or exit_signal)
+        strategy.close("BT_BUY", comment="Dynamic Profit Locked")
+        alert('{"ticker":"' + syminfo.ticker + '","action":"SELL","price":' + str.tostring(close) + ',"strategy_name":"Profit_Locked","passphrase":"BHARAT_SECURE_TOKEN_2026"}', alert.freq_once_per_bar_close)

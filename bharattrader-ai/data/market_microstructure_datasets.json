@@ -1,0 +1,148 @@
+{
+  "regulatory_framework": {
+    "regulator": "Securities and Exchange Board of India (SEBI)",
+    "primary_exchanges": ["National Stock Exchange (NSE)", "Bombay Stock Exchange (BSE)", "Multi Commodity Exchange (MCX)"],
+    "depository_institutions": ["NSDL", "CDSL"],
+    "jurisdiction": "India (INR)",
+    "market_hours_ist": {
+      "pre_market": "09:00 - 09:08",
+      "normal_trading": "09:15 - 15:30",
+      "post_closing": "15:40 - 16:00",
+      "mcx_evening_session": "09:00 - 23:30 (Summer) / 23:55 (Winter)",
+      "currency_derivatives": "09:00 - 17:00"
+    }
+  },
+  "statutory_charges_schedule_inr": {
+    "equity_intraday": {
+      "stt_rate": "0.025% on Sell side only",
+      "exchange_turnover_fee_nse": "0.00297% on both Buy and Sell",
+      "sebi_turnover_charges": "0.0001% (Rs 10 per Crore)",
+      "stamp_duty": "0.003% (Rs 300 per Crore) on Buy side only",
+      "gst_rate": "18% on (Brokerage + Exchange Charges + SEBI Charges)",
+      "brokerage_model": "Zero or flat Rs 20 per executed order"
+    },
+    "equity_delivery": {
+      "stt_rate": "0.1% on both Buy and Sell",
+      "exchange_turnover_fee_nse": "0.00297%",
+      "sebi_turnover_charges": "0.0001%",
+      "stamp_duty": "0.015% (Rs 1500 per Crore) on Buy side only",
+      "depository_dp_charges": "Rs 13.50 to Rs 15.93 per scrip debited on sell",
+      "gst_rate": "18%"
+    },
+    "equity_futures": {
+      "stt_rate": "0.02% on Sell side",
+      "exchange_turnover_fee_nse": "0.00173%",
+      "sebi_turnover_charges": "0.0001%",
+      "stamp_duty": "0.002% on Buy side",
+      "gst_rate": "18%"
+    },
+    "equity_options": {
+      "stt_rate": "0.1% on Sell side (premium turnover) / 0.125% on Intrinsic value on exercise",
+      "exchange_turnover_fee_nse": "0.03503% on premium",
+      "sebi_turnover_charges": "0.0001%",
+      "stamp_duty": "0.003% on Buy side (premium turnover)",
+      "gst_rate": "18%"
+    },
+    "commodity_mcx": {
+      "ctt_rate_futures": "0.01% on Sell side (non-agri)",
+      "ctt_rate_options": "0.05% on Sell side (options premium)",
+      "exchange_turnover_charges": "0.0021% on non-agri",
+      "stamp_duty": "0.002% on Buy side",
+      "gst_rate": "18%"
+    }
+  },
+  "index_circuit_breaker_rules": {
+    "10_percent_movement": {
+      "before_13_00_ist": "Market halt for 45 minutes + 15 minute pre-open session",
+      "between_13_00_and_14_30_ist": "Market halt for 15 minutes + 15 minute pre-open session",
+      "at_or_after_14_30_ist": "No halt, trading continues smoothly"
+    },
+    "15_percent_movement": {
+      "before_13_00_ist": "Market halt for 1 hour 45 minutes + 15 minute pre-open",
+      "between_13_00_and_14_00_ist": "Market halt for 45 minutes + 15 minute pre-open",
+      "at_or_after_14_00_ist": "Market halts for the remainder of the day"
+    },
+    "20_percent_movement": {
+      "any_time_of_day": "Trading halted immediately for the remainder of the day"
+    }
+  },
+  "derivatives_contract_specifications": {
+    "NIFTY50": {
+      "lot_size": 25,
+      "tick_size": 0.05,
+      "settlement": "Cash settled on closing price",
+      "weekly_expiry_day": "Thursday (or preceding trading day if holiday)"
+    },
+    "BANKNIFTY": {
+      "lot_size": 15,
+      "tick_size": 0.05,
+      "settlement": "Cash settled",
+      "monthly_expiry_day": "Last Wednesday of the month"
+    },
+    "FINNIFTY": {
+      "lot_size": 25,
+      "tick_size": 0.05,
+      "weekly_expiry_day": "Tuesday"
+    },
+    "MIDCPNIFTY": {
+      "lot_size": 50,
+      "tick_size": 0.05,
+      "weekly_expiry_day": "Monday"
+    },
+    "SENSEX": {
+      "lot_size": 10,
+      "tick_size": 0.05,
+      "weekly_expiry_day": "Friday"
+    },
+    "TATASTEEL": {
+      "lot_size": 5500,
+      "tick_size": 0.05,
+      "underlying_category": "Metals & Mining F&O"
+    },
+    "COALINDIA": {
+      "lot_size": 2100,
+      "tick_size": 0.05,
+      "underlying_category": "Energy Mining PSU"
+    },
+    "NMDC": {
+      "lot_size": 3350,
+      "tick_size": 0.05,
+      "underlying_category": "Iron Ore Mining PSU"
+    },
+    "VEDL": {
+      "lot_size": 1150,
+      "tick_size": 0.05,
+      "underlying_category": "Diversified Mining"
+    },
+    "HINDALCO": {
+      "lot_size": 1400,
+      "tick_size": 0.05,
+      "underlying_category": "Non-Ferrous Mining"
+    },
+    "MCX_GOLD": {
+      "lot_size": "100 grams",
+      "tick_size": "Rs 1 per 10 grams",
+      "unit": "10 Grams"
+    },
+    "MCX_SILVER": {
+      "lot_size": "30 kilograms",
+      "tick_size": "Rs 1 per 1 kg",
+      "unit": "1 Kilogram"
+    },
+    "MCX_CRUDEOIL": {
+      "lot_size": "100 barrels",
+      "tick_size": "Rs 1 per barrel",
+      "unit": "1 Barrel"
+    },
+    "MCX_NATGAS": {
+      "lot_size": "1250 mmBtu",
+      "tick_size": "Rs 0.10 per mmBtu",
+      "unit": "1 mmBtu"
+    },
+    "MCX_COPPER": {
+      "lot_size": "2500 kg (2.5 MT)",
+      "tick_size": "Rs 0.05 per 1 kg",
+      "unit": "1 Kilogram"
+    }
+  }
+}

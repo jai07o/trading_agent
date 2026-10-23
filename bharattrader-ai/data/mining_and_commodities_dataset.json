@@ -1,0 +1,155 @@
+{
+  "dataset_metadata": {
+    "title": "Comprehensive Indian Mining, Mineral Resources & MCX Commodities Knowledge Dataset",
+    "updated": "2026-10",
+    "scope": "Pan-India Mining Mines, Production, Pricing Dynamics, Global Benchmarks, Regulations"
+  },
+  "mining_corporations": {
+    "COAL_INDIA": {
+      "symbol": "COALINDIA.NS",
+      "company_name": "Coal India Limited",
+      "ownership": "Government of India PSU (Maharatna)",
+      "annual_production_mt": 703.2,
+      "global_rank": "World's Largest Single Coal Producer",
+      "major_subsidiaries": [
+        "Bharat Coking Coal Ltd (BCCL)",
+        "Central Coalfields Ltd (CCL)",
+        "Eastern Coalfields Ltd (ECL)",
+        "Mahanadi Coalfields Ltd (MCL)",
+        "Northern Coalfields Ltd (NCL)",
+        "South Eastern Coalfields Ltd (SECL)",
+        "Western Coalfields Ltd (WCL)"
+      ],
+      "offtake_allocation": {
+        "power_utilities_fsa": "84.2%",
+        "non_regulated_sector": "8.5%",
+        "e_auction_free_market": "7.3%"
+      },
+      "pricing_mechanism": "Fuel Supply Agreement (FSA) notification prices + E-Auction market premiums (+35% to +85% over FSA)",
+      "rail_rake_dispatch_avg_per_day": 385,
+      "key_cost_drivers": "Heavy earthmoving machinery diesel, contractual overburden removal, wage revision provisions"
+    },
+    "NMDC": {
+      "symbol": "NMDC.NS",
+      "company_name": "National Mineral Development Corporation",
+      "ownership": "Government of India PSU (Navratna)",
+      "annual_production_mt": 45.1,
+      "global_rank": "India's Largest Iron Ore Producer",
+      "key_mining_complexes": [
+        {"name": "Bailadila Deposit 14, 11C, 5, 10", "state": "Chhattisgarh", "fe_grade": "64-67% High-Grade Hematite"},
+        {"name": "Donimalai Iron Ore Mine", "state": "Karnataka", "fe_grade": "62-65% Fe"}
+      ],
+      "pricing_dynamics": "Monthly domestic lump and fines price revision aligned with international Platts 62% Fe index and domestic steel mill demand",
+      "royalty_and_cess": "15% royalty to state governments + 30% DMF (District Mineral Foundation) + NMET (2%)",
+      "slurry_pipeline_infrastructure": "Jagdalpur to Visakhapatnam slurry transport reducing logistics friction"
+    },
+    "TATA_STEEL": {
+      "symbol": "TATASTEEL.NS",
+      "company_name": "Tata Steel Limited",
+      "integrated_status": "Fully Backward Integrated in India",
+      "captive_mines": {
+        "iron_ore": ["Noamundi", "Joda East", "Katamati", "Khadbandh"],
+        "self_sufficiency_iron_ore": "100% Captive in Indian Operations",
+        "coking_coal": ["Jharia Division", "West Bokaro"],
+        "self_sufficiency_coal": "25-30% Captive (Balance imported from Australia)"
+      },
+      "indian_crude_steel_capacity_mtpa": 21.6,
+      "expansion_target_mtpa": 40.0,
+      "flagship_plants": ["Jamshedpur (11 MTPA)", "Kalinganagar (8 MTPA)", "Neelachal Ispat NIGAM (1 MTPA)"],
+      "margin_sensitivity": "Every $10/ton change in hard coking coal impacts EBITDA margin by ~180 bps"
+    },
+    "VEDANTA": {
+      "symbol": "VEDL.NS",
+      "company_name": "Vedanta Limited",
+      "diversified_portfolio": {
+        "zinc_lead_silver": "Hindustan Zinc Ltd (HZL) - 64.9% equity",
+        "aluminium": "Vedanta Aluminium (Jharsuguda smelter 1.8 MTPA, Lanjigarh refinery 5 MTPA)",
+        "oil_and_gas": "Cairn Oil & Gas (Mangala, Bhagyam, Aishwarya in Barmer, Rajasthan)",
+        "iron_ore_and_pig_iron": "Sesa Goa & ESL Steel (Bokaro)",
+        "copper": "Sterlite Copper (Tuticorin, Silvassa)"
+      },
+      "cost_structure": "Aluminium cash cost targeting sub-$1,750/ton via captive coal blocks (Jamkhani, Radhikapur) and Lanjigarh alumina expansion"
+    },
+    "HINDALCO": {
+      "symbol": "HINDALCO.NS",
+      "company_name": "Hindalco Industries Limited (Aditya Birla Group)",
+      "integrated_operations": {
+        "upstream_india": "Bauxite mining in Odisha, Utkal alumina refinery (2.5 MTPA), Hirakud, Mahan, Aditya smelters",
+        "downstream_global": "Novelis Inc - World leader in beverage can sheet recycling (61% recycled content) and automotive aluminium sheet"
+      },
+      "cost_advantage": "Utkal Alumina places Hindalco in the first quartile of the global aluminium cash cost curve",
+      "copper_business": "Birla Copper Dahej - One of the world's largest single-location custom copper smelters"
+    },
+    "HINDUSTAN_ZINC": {
+      "symbol": "HINDZINC.NS",
+      "company_name": "Hindustan Zinc Limited",
+      "global_standing": "World's 2nd largest integrated zinc producer, 3rd largest silver producer globally",
+      "flagship_underground_mines": [
+        "Rampura Agucha Mine (World's largest zinc-lead underground mine)",
+        "Sindesar Khurd Mine (World-class high silver grade ore body)",
+        "Zawar Mines (Heritage zinc-lead operation dating back to antiquity)",
+        "Rajpura Dariba Mine",
+        "Kayad Mine"
+      ],
+      "reserve_life": "25+ years of mine life backed by high-grade reserves",
+      "cost_of_production": "Global 1st decile zinc cost producer (~$1,100/MT ex-royalty)"
+    },
+    "NALCO": {
+      "symbol": "NATIONALUM.NS",
+      "company_name": "National Aluminium Company Limited",
+      "ownership": "Government of India PSU (Navratna)",
+      "captive_assets": {
+        "bauxite_mine": "Panchpatmali Hills (Koraput, Odisha) - Exceptionally low mining cost",
+        "alumina_refinery": "Damanjodi",
+        "smelter_and_captive_power": "Angul (460,000 MTPA aluminium smelter + 1200 MW CPP)",
+        "captive_coal_block": "Utkal D and E"
+      },
+      "competitive_edge": "Lowest bauxite mining cost globally"
+    },
+    "MOIL": {
+      "symbol": "MOIL.NS",
+      "company_name": "MOIL Limited",
+      "ownership": "Government of India PSU (Miniratna)",
+      "market_share": "India's largest manganese ore producer (~50% market share)",
+      "key_mines": ["Dongri Buzurg", "Gumgaon", "Chikla", "Tirodi", "Mansar"],
+      "critical_use": "Essential deoxidizer and alloying element in steel manufacturing (6-8 kg Mn per ton of steel)"
+    },
+    "HINDUSTAN_COPPER": {
+      "symbol": "HINDCOPPER.NS",
+      "company_name": "Hindustan Copper Limited",
+      "ownership": "Government of India PSU (Miniratna)",
+      "strategic_value": "India's only vertically integrated copper mining company with primary mining leases",
+      "primary_mines": ["Malanjkhand (Madhya Pradesh - open pit & underground)", "Khetri (Rajasthan)", "Ghatsila (Jharkhand)"]
+    }
+  },
+  "mcx_commodities_benchmarks": {
+    "GOLD": {
+      "standard_purity": "999 (24 Karat)",
+      "domestic_pricing_formula": "((LME Gold USD/oz / 31.1035) * USDINR exchange rate * (1 + Import Duty + AIDC) * 10 grams) + Local Premium/Discount",
+      "import_duty_structure": "Basic Customs Duty + Agriculture Infrastructure & Development Cess (AIDC)",
+      "seasonal_demand_peaks": ["Dhanteras / Diwali (Oct-Nov)", "Akshaya Tritiya (April-May)", "Wedding Season (Nov-Feb)"]
+    },
+    "SILVER": {
+      "standard_purity": "999",
+      "industrial_applications_share": "60% of total demand (Solar Photovoltaic cells, 5G infrastructure, EV electrical contacts)",
+      "gold_silver_ratio_signals": {
+        "above_85": "Silver historically oversold relative to gold; high probability mean reversion long",
+        "below_65": "Silver relatively rich; caution on aggressive momentum"
+      }
+    },
+    "CRUDE_OIL": {
+      "benchmark_linked": "WTI Light Sweet Crude Oil (CME) mapped to INR",
+      "domestic_impact": "India imports 85%+ of domestic crude consumption; every $10 rise widens CAD and pressures INR",
+      "inventory_reports_triggers": "US EIA Weekly Petroleum Status Report (Wednesdays 20:00 IST)"
+    },
+    "NATURAL_GAS": {
+      "benchmark_linked": "Henry Hub Natural Gas (Louisiana, USA)",
+      "seasonal_drivers": "US winter heating demand (Dec-Feb) and summer power cooling demand (July-Aug)",
+      "storage_report_triggers": "EIA Natural Gas Storage Report (Thursdays 20:00 IST)"
+    },
+    "COPPER": {
+      "global_benchmark": "LME London Metal Exchange Grade A Copper",
+      "economic_indicator": "Dr. Copper - barometer of global industrial manufacturing, EV electrification and renewable energy buildout"
+    }
+  }
+}

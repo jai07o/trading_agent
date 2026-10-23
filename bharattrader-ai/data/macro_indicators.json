@@ -1,0 +1,29 @@
+{
+  "rbi_monetary_policy_cycles": [
+    {"year": "2021", "repo_rate_pct": 4.00, "stance": "Accommodative Pandemic Support", "market_reaction": "Nifty Bull Surge +24.1%"},
+    {"year": "2022", "repo_rate_pct": 6.25, "stance": "Aggressive Tightening Against Inflation", "market_reaction": "Global Consolidation & Tech Re-rating"},
+    {"year": "2023", "repo_rate_pct": 6.50, "stance": "Prolonged Pause & Liquidity Absorption", "market_reaction": "Broad-based Midcap & Smallcap Expansion"},
+    {"year": "2024", "repo_rate_pct": 6.50, "stance": "Neutral Transition & Inflation Containment", "market_reaction": "Banking & Mining Capex Outperformance"},
+    {"year": "2025-2026", "repo_rate_pct": 6.25, "stance": "Calibrated Easing & Growth Facilitation", "market_reaction": "Manufacturing & Infrastructure Rally"}
+  ],
+  "fii_dii_net_institutional_flows_cr": [
+    {"period": "2024-Q1", "fii_net_cr": -14250.0, "dii_net_cr": 32480.0, "net_institutional_impact_cr": 18230.0, "dominant_buyer": "DII Domestic Mutual Funds"},
+    {"period": "2024-Q2", "fii_net_cr": 8500.0, "dii_net_cr": 28900.0, "net_institutional_impact_cr": 37400.0, "dominant_buyer": "Both FII & DII Inflow"},
+    {"period": "2024-Q3", "fii_net_cr": -9800.0, "dii_net_cr": 41200.0, "net_institutional_impact_cr": 31400.0, "dominant_buyer": "DII Retail SIP Surge"},
+    {"period": "2024-Q4", "fii_net_cr": 18400.0, "dii_net_cr": 36700.0, "net_institutional_impact_cr": 55100.0, "dominant_buyer": "Massive Dual Inflow"},
+    {"period": "2025-2026", "fii_net_cr": 24500.0, "dii_net_cr": 48900.0, "net_institutional_impact_cr": 73400.0, "dominant_buyer": "Sustained Structural Absorption"}
+  ],
+  "india_vix_volatility_regimes": [
+    {"range": "9.0 - 12.0", "regime_name": "Ultra-Low Volatility (Option Seller Nirvana)", "strategy": "Range-Bound Theta Decay & VWAP Reversion", "occurrence_pct": 22.0},
+    {"range": "12.0 - 16.0", "regime_name": "Normal Healthy Bull Market", "strategy": "SuperTrend Momentum & Breakout Following", "occurrence_pct": 54.0},
+    {"range": "16.0 - 22.0", "regime_name": "Elevated Volatility (Whipsaw Zone)", "strategy": "FinPos Sub-Second Loss Suppressor at -0.4% & Quick Profit Lock", "occurrence_pct": 18.0},
+    {"range": "> 22.0", "regime_name": "Crisis / Flash-Crash Event", "strategy": "Capital Preservation, Strict Daily Circuit Breakers", "occurrence_pct": 6.0}
+  ],
+  "commodity_macro_benchmarks": {
+    "lme_metal_index_10yr_median": 3420.0,
+    "brent_crude_fair_value_range_usd": [70.0, 85.0],
+    "gold_silver_ratio_historical_mean": 75.4,
+    "current_gold_silver_ratio": 82.7,
+    "arbitrage_bias": "Silver structurally undervalued relative to Gold"
+  }
+}

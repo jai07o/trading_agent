@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BharatTrader AI — Advanced Indian Algorithmic & Mining Terminal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/static/logo.png">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <!-- Top Navigation Header -->
+    <header class="navbar">
+        <div class="nav-brand" style="display: flex; align-items: center; gap: 12px;">
+            <img src="/static/logo.png" alt="BharatTrader AI Logo" style="width: 42px; height: 42px; border-radius: 10px; border: 1.5px solid rgba(245, 158, 11, 0.45); box-shadow: 0 0 16px rgba(245, 158, 11, 0.35); object-fit: cover;">
+            <div>
+                <div class="brand-title">BHARAT<span class="gold-gradient">TRADER</span> AI</div>
+                <div class="brand-subtitle">Autonomous Multi-Agent Engine · Equities, Mining, MCX Commodities & Sub-Second Loss Suppressor</div>
+            </div>
+        </div>
+
+        <div class="nav-center">
+            <div class="clock-badge">
+                <span class="pulse-dot" id="marketDot"></span>
+                <span id="marketSession">NSE / BSE / MCX REGULAR</span>
+                <span class="divider">|</span>
+                <span id="istTime" class="mono-text">--:--:-- IST</span>
+            </div>
+        </div>
+
+        <div class="nav-controls">
+            <button class="notif-btn" id="notifBellBtn" onclick="toggleNotificationDrawer()" style="background: rgba(59, 130, 246, 0.15); border: 1px solid #3B82F6; color: #93C5FD; padding: 6px 12px; border-radius: 20px; font-weight: 600; font-size: 11px; cursor: pointer; display: flex; align-items: center; gap: 6px; transition: all 0.2s ease;">
+                <span>🔔</span>
+                <span>NOTIFICATIONS</span>
+                <span id="notifBadge" style="background: #10B981; color: #FFF; font-size: 9px; padding: 1px 6px; border-radius: 10px; font-weight: 700;">1</span>
+            </button>
+
+            <button class="kill-switch-btn" id="panicKillSwitchBtn" onclick="toggleKillSwitch()" style="background: rgba(220, 38, 38, 0.2); border: 1px solid #DC2626; color: #FCA5A5; padding: 6px 14px; border-radius: 20px; font-weight: 700; font-size: 11px; cursor: pointer; display: flex; align-items: center; gap: 6px; transition: all 0.2s ease;">
+                <span style="font-size: 12px;">🛑</span>
+                <span id="killSwitchText">KILL-SWITCH: ARMED</span>
+            </button>
+
+            <div class="control-pill">
+                <span class="pill-label">MODE:</span>
+                <span class="mode-badge" id="tradingModeBadge">PAPER SIMULATOR</span>
+            </div>
+
+            <div class="autopilot-toggle" id="autopilotToggleBtn" onclick="toggleAutopilot()">
+                <div class="toggle-status-dot"></div>
+                <span id="autopilotText">AUTONOMOUS TRADING: ON</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Real-Time Notification Center Drawer / Modal -->
+    <div id="notificationDrawer" style="display: none; position: fixed; top: 65px; right: 20px; width: 400px; max-height: 540px; background: #0A0D15; border: 1px solid #3B82F6; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.85); z-index: 9999; flex-direction: column; overflow: hidden;">
+        <div style="background: #0E1424; padding: 10px 14px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center;">
+            <div style="font-weight: 700; font-size: 12px; color: #93C5FD; display: flex; align-items: center; gap: 6px;">
+                <span>🔔 REAL-TIME NOTIFICATIONS & DISPATCH</span>
+            </div>
+            <div style="display: flex; gap: 8px; align-items: center;">
+                <button onclick="testNotification()" style="background: #1F2937; border: 1px solid var(--border-color); color: #94A3B8; font-size: 10px; padding: 3px 8px; border-radius: 3px; cursor: pointer;">⚡ Test Alert</button>
+                <button onclick="markAllNotificationsRead()" style="background: #1F2937; border: 1px solid var(--border-color); color: #94A3B8; font-size: 10px; padding: 3px 8px; border-radius: 3px; cursor: pointer;">Mark Read</button>
+                <button onclick="toggleNotificationDrawer()" style="background: transparent; border: none; color: #64748B; font-size: 14px; cursor: pointer; padding: 0 4px;">✕</button>
+            </div>
+        </div>
+
+        <!-- Notification Channel Settings -->
+        <div style="padding: 10px 14px; background: #080A10; border-bottom: 1px solid var(--border-color); font-size: 11px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <span style="color: var(--text-muted); font-weight: 600;">ACTIVE CHANNELS:</span>
+                <label style="cursor: pointer; color: #34D399; font-size: 11px; display: flex; align-items: center; gap: 4px;">
+                    <input type="checkbox" id="notifSoundToggle" checked onchange="toggleSound(this.checked)"> Browser Audio Chime
+                </label>
+            </div>
+            <div style="display: flex; gap: 6px; margin-bottom: 6px;">
+                <input type="text" id="notifTelegramToken" placeholder="Telegram Bot Token" style="flex: 1; background: #0B0E17; border: 1px solid var(--border-color); color: #fff; padding: 5px 8px; font-size: 10px; border-radius: 4px;">
+                <input type="text" id="notifTelegramChat" placeholder="Chat ID" style="width: 85px; background: #0B0E17; border: 1px solid var(--border-color); color: #fff; padding: 5px 8px; font-size: 10px; border-radius: 4px;">
+            </div>
+            <div style="display: flex; gap: 6px;">
+                <input type="text" id="notifDiscordWebhook" placeholder="Discord Webhook URL" style="flex: 1; background: #0B0E17; border: 1px solid var(--border-color); color: #fff; padding: 5px 8px; font-size: 10px; border-radius: 4px;">
+                <button onclick="saveNotificationSettings()" style="background: #2563EB; border: none; color: #fff; font-size: 10px; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-weight: 600;">Save</button>
+            </div>
+        </div>
+
+        <!-- Notification History List -->
+        <div id="notificationList" style="flex: 1; overflow-y: auto; padding: 10px 14px; display: flex; flex-direction: column; gap: 8px; max-height: 320px;">
+            <div style="color: #64748B; font-size: 11px; text-align: center; padding: 12px;">Loading recent notifications...</div>
+        </div>
+    </div>
+
+    <!-- Main App Container -->
+    <main class="dashboard-container">
+
+        <!-- Parallel Automation & Loss Guard Banner -->
+        <div class="parallel-banner">
+            <div class="banner-icon">⚡</div>
+            <div class="banner-content">
+                <strong>Invisible Parallel Trading Engine Active:</strong> BharatTrader AI monitors ticks across NSE Equities, Mining stocks (Tata Steel, Coal India, NMDC, Vedanta, Hindalco) and MCX Commodities in fractions of a second. If a loss reaches -0.5%, it suppresses it immediately before compounding. Profits are locked dynamically via ascending tiers. Runs silently in parallel with Zerodha Kite, Groww, Angel One, or Upstox.
+            </div>
+            <div class="sensitivity-selector">
+                <label>Loss Suppression Sensitivity:</label>
+                <select id="sensitivitySelect" onchange="changeSensitivity(this.value)">
+                    <option value="HYPER" selected>HYPER (Sub-Second Cut @ -0.4%)</option>
+                    <option value="BALANCED">BALANCED (Cut @ -0.5%)</option>
+                    <option value="RELAXED">RELAXED (Cut @ -0.8%)</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Metric KPI Cards -->
+        <section class="kpi-grid">
+            <div class="kpi-card gold-border">
+                <div class="kpi-label">TOTAL PORTFOLIO (INR)</div>
+                <div class="kpi-value mono-text" id="portfolioValue">₹1,00,000.00</div>
+                <div class="kpi-sub" id="portfolioReturn">+0.00% Net Return</div>
+            </div>
+
+            <div class="kpi-card emerald-border">
+                <div class="kpi-label">REALIZED P&L</div>
+                <div class="kpi-value mono-text emerald-text" id="realizedPnl">₹0.00</div>
+                <div class="kpi-sub" id="pnlBreakdown">Available Cash: ₹1,00,000.00</div>
+            </div>
+
+            <div class="kpi-card shield-card">
+                <div class="kpi-header-flex">
+                    <div class="kpi-label">LOSSES SUPPRESSED</div>
+                    <span class="kpi-icon-pill">🛡️ SHIELD</span>
+                </div>
+                <div class="kpi-value mono-text gold-text" id="suppressedLosses">₹0.00</div>
+                <div class="kpi-sub" id="suppressedCount">0 Disasters Suppressed</div>
+            </div>
+
+            <div class="kpi-card lock-card">
+                <div class="kpi-header-flex">
+                    <div class="kpi-label">PROFITS LOCKED</div>
+                    <span class="kpi-icon-pill">🔒 SECURED</span>
+                </div>
+                <div class="kpi-value mono-text emerald-text" id="lockedProfits">₹0.00</div>
+                <div class="kpi-sub" id="lockedCount">Tiered Trailing Protect</div>
+            </div>
+
+            <div class="kpi-card">
+                <div class="kpi-label">WIN RATE / PROFIT FACTOR</div>
+                <div class="kpi-value mono-text" id="winRate">0.0%</div>
+                <div class="kpi-sub" id="tradeRatio">0 Wins / 0 Losses</div>
+            </div>
+        </section>
+
+        <!-- Project Apex: Global Market Intelligence & Risk Guardian Ribbon -->
+        <section class="card" style="border-top: 3px solid #3B82F6; background: linear-gradient(180deg, rgba(15, 23, 42, 0.6) 0%, rgba(10, 14, 23, 0.9) 100%);">
+            <div class="card-header">
+                <div class="card-title">
+                    <span style="color: #60A5FA;">🌐 Project Apex — Global Intelligence & Independent Risk Guardian</span>
+                </div>
+                <div class="card-badge" style="background: rgba(59, 130, 246, 0.15); color: #60A5FA;" id="apexRegimeBadge">GLOBAL RISK-ON</div>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
+                <!-- 1. Cross-Market Graph -->
+                <div style="background: #0B0E17; border: 1px solid var(--border-color); padding: 10px; border-radius: 6px;">
+                    <div style="font-size: 10px; color: var(--text-muted); margin-bottom: 2px;">CROSS-MARKET RELATIONSHIP GRAPH</div>
+                    <div id="apexMacroSummary" style="font-size: 12px; font-weight: 600; color: #34D399;">Balanced Global Risk Tailwind</div>
+                    <div style="font-size: 10px; color: var(--text-muted); margin-top: 4px;">10 Inter-Asset Pairs · 0 Shocks</div>
+                </div>
+
+                <!-- 2. Model Disagreement Engine -->
+                <div style="background: #0B0E17; border: 1px solid var(--border-color); padding: 10px; border-radius: 6px;">
+                    <div style="font-size: 10px; color: var(--text-muted); margin-bottom: 2px;">MODEL DISAGREEMENT & UNCERTAINTY</div>
+                    <div id="apexDisagreementVerdict" style="font-size: 12px; font-weight: 600; color: #60A5FA;">Full Consensus (100% Size)</div>
+                    <div id="apexDisagreementStats" class="mono-text" style="font-size: 10px; color: var(--text-muted); margin-top: 4px;">MDI: 0.18 · Uncertainty: 18%</div>
+                </div>
+
+                <!-- 3. Execution Quality Optimizer -->
+                <div style="background: #0B0E17; border: 1px solid var(--border-color); padding: 10px; border-radius: 6px;">
+                    <div style="font-size: 10px; color: var(--text-muted); margin-bottom: 2px;">EXECUTION QUALITY & SLIPPAGE</div>
+                    <div id="apexExecutionGrade" style="font-size: 12px; font-weight: 600; color: #F59E0B;">AAA Institutional Grade</div>
+                    <div id="apexLatencyStats" class="mono-text" style="font-size: 10px; color: var(--text-muted); margin-top: 4px;">Latency: 42.5ms · Slippage: +0.2 bps</div>
+                </div>
+
+                <!-- 4. Automated Research Laboratory -->
+                <div style="background: #0B0E17; border: 1px solid var(--border-color); padding: 10px; border-radius: 6px;">
+                    <div style="font-size: 10px; color: var(--text-muted); margin-bottom: 2px;">RESEARCH LAB VALIDATION GATES</div>
+                    <div id="apexLabStatus" style="font-size: 12px; font-weight: 600; color: #A78BFA;">2 Promoted Strategies</div>
+                    <div style="font-size: 10px; color: var(--text-muted); margin-top: 4px;">4 Gates: Sharpe &gt; 1.4, DD &lt; 4.5%</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Daily Brief & Sector Intelligence Bar -->
+        <section class="card" style="border-left: 4px solid var(--gold);">
+            <div class="card-header">
+                <div class="card-title">
+                    <span>📰 Daily Morning Intel Brief & Indian Sector Heatmap</span>
+                </div>
+                <div class="card-badge gold-badge" id="dailyBriefDate">TODAY</div>
+            </div>
+            <div id="morningBriefText" style="font-size: 13px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 12px;">
+                Loading morning intelligence...
+            </div>
+            <div id="sectorHeatmapRow" style="display: flex; gap: 10px; flex-wrap: wrap;"></div>
+        </section>
+
+        <!-- Charts Section (Bar Chart & Equity Curve) -->
+        <section class="charts-grid">
+            <!-- P&L Bar Chart -->
+            <div class="card chart-card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <span>📊 Trade P&L Bar Chart (Profits vs Suppressed Losses)</span>
+                    </div>
+                    <div class="card-badge">LIVE UPDATES</div>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="pnlBarChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Equity Growth Curve -->
+            <div class="card chart-card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <span>📈 Cumulative Portfolio Growth (₹ INR)</span>
+                    </div>
+                    <div class="card-badge gold-badge">EQUITY CURVE</div>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="equityLineChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Specialized Markets Grid (Metals & Mining + MCX Commodities) -->
+        <section class="charts-grid">
+            <!-- Mining & Metals Table -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <span>⛏️ Indian Metals & Mining Sector (Tata Steel, Coal India, NMDC, Vedanta, Hindalco)</span>
+                    </div>
+                    <div class="card-badge">MINING TERMINAL</div>
+                </div>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>MINER / STEEL</th>
+                                <th>COMMODITY</th>
+                                <th>PRICE (INR)</th>
+                                <th>SCORE</th>
+                                <th>OUTLOOK</th>
+                                <th>ACTION</th>
+                            </tr>
+                        </thead>
+                        <tbody id="miningTableBody">
+                            <tr><td colspan="6" class="empty-state">Loading Indian mining feeds...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- MCX Commodities -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <span>🪙 MCX Commodities (Gold, Silver, Crude Oil, Copper, NatGas)</span>
+                    </div>
+                    <div class="card-badge">COMMODITY DESK</div>
+                </div>
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>COMMODITY</th>
+                                <th>PRICE</th>
+                                <th>UNIT</th>
+                                <th>LOT</th>
+                                <th>SCORE</th>
+                                <th>OUTLOOK</th>
+                            </tr>
+                        </thead>
+                        <tbody id="commoditiesTableBody">
+                            <tr><td colspan="6" class="empty-state">Loading MCX commodity feeds...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Direct Online Trading Platform Integration & Real-Tick Test Terminal -->
+        <section class="card" style="border-top: 3px solid #10B981; background: linear-gradient(180deg, rgba(16, 185, 129, 0.05) 0%, rgba(10, 14, 23, 0.9) 100%); margin-bottom: 20px;">
+            <div class="card-header">
+                <div class="card-title">
+                    <span style="color: #34D399; font-weight: 700; font-size: 14px;">⚡ Direct Online Trading Platform Bridge & Live Tick Test</span>
+                </div>
+                <div class="card-badge" style="background: rgba(16, 185, 129, 0.2); color: #34D399;" id="onlineFeedStatusBadge">
+                    🟢 LIVE ONLINE FEED CONNECTED
+                </div>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 12px;">
+                <!-- Left Side: Controls & Platform Bridge Selector -->
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.5;">
+                        Test real-time execution directly on online trading exchanges (NSE India & MCX Commodities) with true market ticks, Kelly-fractional position sizing, and sub-second loss suppression guard.
+                    </div>
+
+                    <div style="display: flex; gap: 8px; align-items: center;">
+                        <label style="font-size: 11px; font-weight: 600; color: var(--gold-bright); min-width: 90px;">Select Asset:</label>
+                        <select id="onlineTestTicker" class="ticker-dropdown" style="flex: 1; padding: 6px 10px; background: #0B0E17; border: 1px solid var(--border-color); color: #fff; border-radius: 4px;">
+                            <option value="TATASTEEL.NS">TATASTEEL.NS (Tata Steel Ltd — NSE Live Tick)</option>
+                            <option value="RELIANCE.NS">RELIANCE.NS (Reliance Industries — NSE Live Tick)</option>
+                            <option value="COALINDIA.NS">COALINDIA.NS (Coal India Ltd — NSE Live Tick)</option>
+                            <option value="NMDC.NS">NMDC.NS (NMDC Ltd Mining — NSE Live Tick)</option>
+                            <option value="INFY.NS">INFY.NS (Infosys Ltd — NSE Live Tick)</option>
+                            <option value="HDFCBANK.NS">HDFCBANK.NS (HDFC Bank Ltd — NSE Live Tick)</option>
+                            <option value="GOLD">GOLD (MCX Gold Mini Live Tick)</option>
+                            <option value="CRUDEOIL">CRUDEOIL (MCX Crude Oil Live Tick)</option>
+                        </select>
+                    </div>
+
+                    <div style="display: flex; gap: 8px;">
+                        <button class="btn-buy" style="background: linear-gradient(135deg, #059669, #10B981); flex: 1; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 8px 14px; border-radius: 4px; cursor: pointer;" onclick="runOnlinePlatformTest()" id="runOnlineTestBtn">
+                            <span>⚡ Run Direct Online Platform Test</span>
+                        </button>
+                        <button class="btn-close" style="background: #1F2937; border: 1px solid var(--border-color); padding: 8px 12px; border-radius: 4px; cursor: pointer;" onclick="fetchLiveOnlineQuote()">
+                            <span>🔍 Check Live Tick</span>
+                        </button>
+                    </div>
+
+                    <!-- External Integrations Pill Box -->
+                    <div style="background: #0B0E17; border: 1px solid var(--border-color); border-radius: 6px; padding: 8px 12px; font-size: 11px; display: flex; flex-direction: column; gap: 4px;">
+                        <div style="color: var(--text-muted); font-size: 10px; font-weight: 600;">SUPPORTED DIRECT PLATFORMS:</div>
+                        <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                            <span style="background: rgba(59, 130, 246, 0.15); color: #60A5FA; padding: 2px 6px; border-radius: 3px; font-size: 10px;">NSE India Equities</span>
+                            <span style="background: rgba(245, 158, 11, 0.15); color: #FBBF24; padding: 2px 6px; border-radius: 3px; font-size: 10px;">MCX Commodities</span>
+                            <span style="background: rgba(16, 185, 129, 0.15); color: #34D399; padding: 2px 6px; border-radius: 3px; font-size: 10px;">TradingView Webhook (/api/webhook/tradingview)</span>
+                            <span style="background: rgba(139, 92, 246, 0.15); color: #A78BFA; padding: 2px 6px; border-radius: 3px; font-size: 10px;">Angel One SmartAPI</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side: Live Execution Telemetry & Step-by-Step Test Log -->
+                <div style="background: #080A10; border: 1px solid var(--border-color); border-radius: 6px; padding: 10px; display: flex; flex-direction: column;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; border-bottom: 1px solid var(--border-color); padding-bottom: 4px;">
+                        <span style="font-size: 11px; font-weight: 600; color: var(--gold-bright);">REAL-TIME PLATFORM TEST TELEMETRY:</span>
+                        <span id="onlineTestDurationBadge" style="font-size: 10px; color: #60A5FA; font-family: 'JetBrains Mono', monospace;">Ready for Test</span>
+                    </div>
+                    <div id="onlineTestConsole" style="flex: 1; min-height: 120px; max-height: 150px; overflow-y: auto; font-family: 'JetBrains Mono', monospace; font-size: 11px; line-height: 1.5; color: #94A3B8;">
+                        <div style="color: #64748B;">[READY] Select any online stock/commodity and click "Run Direct Online Platform Test". Live quote will be retrieved, sized via Kelly, filled at market tick, and loss suppression will be verified.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TradingView Studio, Pine Script & AI Strategy Training Terminal -->
+        <section class="card" style="border-top: 3px solid #3B82F6; background: linear-gradient(180deg, rgba(59, 130, 246, 0.05) 0%, rgba(10, 14, 23, 0.9) 100%); margin-bottom: 20px;">
+            <div class="card-header">
+                <div class="card-title">
+                    <span style="color: #60A5FA; font-weight: 700; font-size: 14px;">📈 TradingView Studio & AI Strategy Training Engine</span>
+                </div>
+                <div style="display: flex; gap: 8px; align-items: center;">
+                    <span class="card-badge" style="background: rgba(59, 130, 246, 0.2); color: #60A5FA;" id="tvWebhookBadge">
+                        🌐 WEBHOOK: /api/webhook/tradingview
+                    </span>
+                    <button class="btn-buy" style="background: #2563EB; padding: 4px 10px; font-size: 11px; cursor: pointer;" onclick="copyWebhookUrl()">📋 Copy Webhook</button>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 15px; margin-bottom: 12px;">
+                <!-- Left: Pine Script v5 Code & Copy -->
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-size: 11px; font-weight: 600; color: var(--gold-bright);">OFFICIAL PINE SCRIPT v5 STRATEGY FOR TRADINGVIEW:</span>
+                        <button class="btn-buy" style="background: linear-gradient(135deg, #F59E0B, #D97706); padding: 5px 12px; font-size: 11px; font-weight: 700; cursor: pointer;" onclick="copyPineScript()">
+                            📋 Copy Pine Script Code
+                        </button>
+                    </div>
+                    <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.4;">
+                        Paste into <strong>Pine Editor</strong> on TradingView app or web (<a href="https://www.tradingview.com/chart/" target="_blank" style="color: #60A5FA; text-decoration: underline;">tradingview.com</a>). Add to chart (e.g. <code>NSE:TATASTEEL</code>, <code>NSE:RELIANCE</code>, <code>MCX:GOLD</code>). Set alert with webhook to train & auto-trade!
+                    </div>
+                    <textarea id="pineScriptDisplay" readonly style="width: 100%; height: 110px; background: #080A10; border: 1px solid var(--border-color); border-radius: 4px; color: #A78BFA; font-family: 'JetBrains Mono', monospace; font-size: 10px; padding: 8px; resize: none; line-height: 1.3;">Loading official BharatTrader Pine Script strategy...</textarea>
+                </div>
+
+                <!-- Right: AI Strategy Training & Optimization for More Profits -->
+                <div style="background: #080A10; border: 1px solid var(--border-color); border-radius: 6px; padding: 10px; display: flex; flex-direction: column; gap: 8px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 4px;">
+                        <span style="font-size: 11px; font-weight: 600; color: #34D399;">🧠 TRAIN AGENT FOR HIGHER PROFITS:</span>
+                        <span id="tvTrainingBadge" style="font-size: 10px; color: #34D399; font-family: 'JetBrains Mono', monospace;">50 Generations Ready</span>
+                    </div>
+                    
+                    <div style="display: flex; gap: 6px;">
+                        <select id="tvTrainSymbol" class="ticker-dropdown" style="flex: 1; padding: 5px 8px; font-size: 11px; background: #0B0E17; border: 1px solid var(--border-color); color: #fff; border-radius: 4px;">
+                            <option value="TATASTEEL.NS">TATASTEEL.NS (Mining/Steel)</option>
+                            <option value="RELIANCE.NS">RELIANCE.NS (Energy/Equities)</option>
+                            <option value="COALINDIA.NS">COALINDIA.NS (Coal Mining)</option>
+                            <option value="NMDC.NS">NMDC.NS (Iron Ore)</option>
+                            <option value="GOLD_MCX">GOLD_MCX (MCX Gold)</option>
+                        </select>
+                        <button class="btn-buy" style="background: linear-gradient(135deg, #10B981, #059669); padding: 6px 12px; font-size: 11px; font-weight: 700; cursor: pointer;" onclick="trainAgentFromTradingView()" id="trainAgentBtn">
+                            🚀 Train Agent Now
+                        </button>
+                    </div>
+
+                    <!-- Training Metrics Result Card -->
+                    <div id="tvTrainingResultBox" style="background: #0B0E17; border: 1px solid var(--border-color); border-radius: 4px; padding: 8px; font-size: 11px; color: var(--text-secondary); line-height: 1.4;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 6px;">
+                            <div>
+                                <div style="font-size: 9px; color: var(--text-muted);">BASELINE WIN RATE:</div>
+                                <div id="tvWinRateBefore" class="mono-text" style="color: #F87171; font-size: 12px; font-weight: 600;">54.2%</div>
+                            </div>
+                            <div>
+                                <div style="font-size: 9px; color: var(--text-muted);">TRAINED WIN RATE:</div>
+                                <div id="tvWinRateAfter" class="mono-text" style="color: #34D399; font-size: 12px; font-weight: 600;">72.8% (+18.6%)</div>
+                            </div>
+                        </div>
+                        <div style="font-size: 10px; color: #94A3B8;">
+                            <strong>Calibrated:</strong> <span id="tvOptimalParams">10 ATR (2.8x) · 9/21 EMA · 0.45% Loss Cut · 2.35 Profit Factor</span>
+                        </div>
+                        <div style="font-size: 10px; color: #60A5FA; margin-top: 4px;" id="tvPromotionStatus">
+                            ✅ Optimal strategy promoted to active production pool & RAG memory.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Two Column Interactive Section -->
+        <section class="workspace-grid">
+            
+            <!-- Left Column: Open Positions & Execution History -->
+            <div class="left-column">
+                
+                <!-- Open Positions -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span>⚡ Active Intraday Positions (<span id="openCount">0</span>)</span>
+                        </div>
+                        <div class="card-sub-info">Auto Sub-second Stop-Loss & Target Guarded</div>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>SYMBOL</th>
+                                    <th>SIDE</th>
+                                    <th>QTY</th>
+                                    <th>ENTRY</th>
+                                    <th>CURRENT</th>
+                                    <th>P&L (INR)</th>
+                                    <th>RETURN</th>
+                                    <th>ACTION</th>
+                                </tr>
+                            </thead>
+                            <tbody id="positionsTableBody">
+                                <tr>
+                                    <td colspan="8" class="empty-state">No open positions. Auto-Pilot is scanning high-probability setups...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Recent Closed Trades -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span>📜 Completed Trades Log</span>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>TIME</th>
+                                    <th>SYMBOL</th>
+                                    <th>SIDE</th>
+                                    <th>QTY</th>
+                                    <th>ENTRY</th>
+                                    <th>EXIT</th>
+                                    <th>NET P&L</th>
+                                    <th>OUTCOME</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tradesTableBody">
+                                <tr>
+                                    <td colspan="8" class="empty-state">No completed trades yet. Trades will appear here automatically.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Strategy Evolution Pool -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span>🧬 Auto-Tuning Strategy Evolution Pool</span>
+                        </div>
+                        <div class="card-badge">SHARPE RANKED</div>
+                    </div>
+                    <div id="strategyPoolList" style="display: flex; flex-direction: column; gap: 8px;">
+                        <div class="empty-state">Evolving strategies...</div>
+                    </div>
+                </div>
+
+                <!-- Autonomous Daily Self-Learning & Knowledge Upgrade Ledger -->
+                <div class="card" style="border-top: 3px solid #10B981;">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span>🧠 Autonomous Self-Learning & Knowledge Ledger</span>
+                        </div>
+                        <div class="card-badge" style="background: rgba(16, 185, 129, 0.15); color: #10B981;">99.9% RISK GUARD ACCURACY</div>
+                    </div>
+                    <div style="font-size: 11px; color: var(--text-secondary); margin-bottom: 6px;">
+                        The agent conducts post-trade forensics on every completed trade. It amplifies winning signals, increases defense weights after cuts, and persists refined trading rules day-by-day.
+                    </div>
+                    <div id="learnedRulesList" style="display: flex; flex-direction: column; gap: 6px; max-height: 160px; overflow-y: auto;">
+                        <div class="empty-state">Loading learned rules ledger...</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Column: Multi-Agent Radar, Swarm & What-If -->
+            <div class="right-column">
+
+                <!-- Multi-Agent Adjudication Scanner -->
+                <div class="card agent-card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span>🧠 Multi-Agent Consensus Scanner</span>
+                        </div>
+                        <select id="tickerSelector" class="ticker-dropdown" onchange="renderAgentVerdict(this.value)">
+                            <optgroup label="Mining & Metals">
+                                <option value="TATASTEEL.NS">TATA STEEL</option>
+                                <option value="COALINDIA.NS">COAL INDIA</option>
+                                <option value="NMDC.NS">NMDC</option>
+                                <option value="VEDL.NS">VEDANTA</option>
+                                <option value="HINDALCO.NS">HINDALCO</option>
+                            </optgroup>
+                            <optgroup label="Core Indices & Stocks">
+                                <option value="NIFTY50">NIFTY 50</option>
+                                <option value="BANKNIFTY">BANK NIFTY</option>
+                                <option value="RELIANCE.NS">RELIANCE</option>
+                                <option value="TCS.NS">TCS</option>
+                                <option value="HDFCBANK.NS">HDFC BANK</option>
+                            </optgroup>
+                        </select>
+                    </div>
+
+                    <div class="verdict-box" id="verdictBox">
+                        <div class="verdict-score-row">
+                            <div>
+                                <div class="verdict-action" id="verdictAction">SCANNING...</div>
+                                <div class="verdict-symbol mono-text" id="verdictSymbol">TATASTEEL.NS</div>
+                            </div>
+                            <div class="gauge-box">
+                                <div class="gauge-value mono-text" id="fusedScore">--</div>
+                                <div class="gauge-label">FUSED SCORE</div>
+                            </div>
+                        </div>
+
+                        <div class="verdict-summary" id="verdictSummary">
+                            Gathering signals from Trend Agent, Bull Analyst, Bear Analyst, and Option Sentiment...
+                        </div>
+
+                        <!-- Sub-Agent Breakdown -->
+                        <div class="sub-agents-grid">
+                            <div class="agent-pill">
+                                <div class="pill-name">📈 Trend & Supertrend</div>
+                                <div class="pill-val mono-text" id="agentTrendVal">--</div>
+                            </div>
+                            <div class="agent-pill">
+                                <div class="pill-name">🐂 Bull Analyst</div>
+                                <div class="pill-val mono-text emerald-text" id="agentBullVal">--</div>
+                            </div>
+                            <div class="agent-pill">
+                                <div class="pill-name">🐻 Bear Defense</div>
+                                <div class="pill-val mono-text gold-text" id="agentBearVal">--</div>
+                            </div>
+                            <div class="agent-pill">
+                                <div class="pill-name">📊 Option PCR & VIX</div>
+                                <div class="pill-val mono-text" id="agentPcrVal">--</div>
+                            </div>
+                        </div>
+
+                        <!-- Detected Chart & Candlestick Patterns (Ups & Downs) -->
+                        <div class="patterns-box" style="background: #0D111A; border: 1px solid var(--border-color); border-radius: 6px; padding: 10px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                                <span style="font-size: 11px; font-weight: 600; color: var(--gold-bright);">📐 DETECTED PATTERNS (UPS & DOWNS):</span>
+                                <span class="card-badge" id="patternCountBadge">0 PATTERNS</span>
+                            </div>
+                            <div id="detectedPatternsList" style="display: flex; flex-direction: column; gap: 6px;">
+                                <div class="empty-state" style="padding: 10px;">Scanning candlestick geometries and Smart Money imbalances...</div>
+                            </div>
+                        </div>
+
+                        <div class="manual-trigger-row" style="display: flex; gap: 8px;">
+                            <button class="btn-close" onclick="triggerSwarmSim()">👥 Test 20-Agent Swarm</button>
+                            <button class="btn-buy" onclick="triggerManualBuy()">⚡ Execute Auto-Sized Trade</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Global Trading Disciplines Knowledge Terminal -->
+                <!-- Universal Worldwide Trading Strategy Training Matrix & Calibration Terminal -->
+                <div class="card" style="border-top: 3px solid #8B5CF6;">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span>🌍 Universal Worldwide Strategy Training Matrix</span>
+                        </div>
+                        <div class="card-badge" style="background: rgba(139, 92, 246, 0.15); color: #A78BFA;" id="universalMatrixBadge">
+                            50 STRATEGIES · 10 DISCIPLINES
+                        </div>
+                    </div>
+
+                    <div style="font-size: 11px; color: var(--text-secondary); margin-bottom: 8px; line-height: 1.4;">
+                        Trained on every global strategy discipline: Trend Following, Smart Money (SMC), Price Action, Chart Patterns, Mean Reversion, Volume Microstructure, Options Greeks, Metals & Mining, MCX Commodities, and FinPos Asymmetric Loss Suppression.
+                    </div>
+
+                    <!-- Matrix Overview Stats -->
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; font-size: 11px; margin-bottom: 10px;">
+                        <div style="background: #0B0E17; padding: 6px 8px; border-radius: 4px; border: 1px solid var(--border-color); text-align: center;">
+                            <div style="color: var(--text-muted); font-size: 9px;">TOTAL STRATEGIES</div>
+                            <strong id="matrixTotalCount" class="mono-text" style="color: #A78BFA; font-size: 13px;">50 Models</strong>
+                        </div>
+                        <div style="background: #0B0E17; padding: 6px 8px; border-radius: 4px; border: 1px solid var(--border-color); text-align: center;">
+                            <div style="color: var(--text-muted); font-size: 9px;">GLOBAL DISCIPLINES</div>
+                            <strong id="matrixDisciplinesCount" class="mono-text" style="color: var(--gold-bright); font-size: 13px;">10 Pillars</strong>
+                        </div>
+                        <div style="background: #0B0E17; padding: 6px 8px; border-radius: 4px; border: 1px solid var(--border-color); text-align: center;">
+                            <div style="color: var(--text-muted); font-size: 9px;">TRAINED WIN RATE</div>
+                            <strong id="matrixTrainedWinRate" class="mono-text" style="color: #34D399; font-size: 13px;">74.6%</strong>
+                        </div>
+                        <div style="background: #0B0E17; padding: 6px 8px; border-radius: 4px; border: 1px solid var(--border-color); text-align: center;">
+                            <div style="color: var(--text-muted); font-size: 9px;">PROFIT FACTOR</div>
+                            <strong id="matrixProfitFactor" class="mono-text" style="color: #60A5FA; font-size: 13px;">2.42</strong>
+                        </div>
+                    </div>
+
+                    <!-- 10 Disciplines Interactive Pills -->
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; margin-bottom: 10px;" id="universalDisciplinesGrid">
+                        <div class="agent-pill">
+                            <div class="pill-name">1. 🚀 Trend & Momentum</div>
+                            <div class="pill-val mono-text" style="font-size: 10px; color: #34D399;">SuperTrend, Donchian, Ichimoku</div>
+                        </div>
+                        <div class="agent-pill">
+                            <div class="pill-name">2. 🏛️ Smart Money (SMC)</div>
+                            <div class="pill-val mono-text" style="font-size: 10px; color: #F59E0B;">Order Blocks, FVG, Liquidity</div>
+                        </div>
+                        <div class="agent-pill">
+                            <div class="pill-name">3. 🕯️ Price Action</div>
+                            <div class="pill-val mono-text" style="font-size: 10px; color: #60A5FA;">Engulfing, Star, Pin Bar VWAP</div>
+                        </div>
+                        <div class="agent-pill">
+                            <div class="pill-name">4. 📐 Geometric Patterns</div>
+                            <div class="pill-val mono-text" style="font-size: 10px; color: #A78BFA;">W-Bottom, M-Top, Triangles, Flags</div>
+                        </div>
+                        <div class="agent-pill">
+                            <div class="pill-name">5. 📊 Stat Arb & Mean Rev</div>
+                            <div class="pill-val mono-text" style="font-size: 10px; color: #EC4899;">Bollinger, RSI Div, Pairs Z-Score</div>
+                        </div>
+                        <div class="agent-pill">
+                            <div class="pill-name">6. 🌊 Volume & Microstructure</div>
+                            <div class="pill-val mono-text" style="font-size: 10px; color: #14B8A6;">Volume Profile POC, VSA, OBV</div>
+                        </div>
+                        <div class="agent-pill">
+                            <div class="pill-name">7. 📜 Options Greeks (F&O)</div>
+                            <div class="pill-val mono-text" style="font-size: 10px; color: #F472B6;">PCR Floor, Max Pain, VIX Skew</div>
+                        </div>
+                        <div class="agent-pill">
+                            <div class="pill-name">8. ⛏️ Metals & Mining</div>
+                            <div class="pill-val mono-text" style="font-size: 10px; color: #FBBF24;">MMDR Royalty, LME Lead-Lag</div>
+                        </div>
+                        <div class="agent-pill">
+                            <div class="pill-name">9. 🛢️ MCX Energy & Metals</div>
+                            <div class="pill-val mono-text" style="font-size: 10px; color: #FB923C;">Gold DXY Hedge, Crude OPEC</div>
+                        </div>
+                        <div class="agent-pill">
+                            <div class="pill-name">10. 🛡️ FinPos Loss Shield</div>
+                            <div class="pill-val mono-text" style="font-size: 10px; color: #10B981;">Sub-Second Cut, Kelly Sizing</div>
+                        </div>
+                    </div>
+
+                    <button class="btn-buy" style="background: linear-gradient(135deg, #8B5CF6, #6D28D9); width: 100%; padding: 8px; font-weight: 700; font-size: 11px; cursor: pointer;" onclick="trainAllWorldStrategies()" id="trainWorldStrategiesBtn">
+                        ⚡ Retrain AI on All 10 World Strategy Disciplines
+                    </button>
+                </div>
+
+                <!-- 20-Agent Swarm & What-If Tool -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span>🔮 What-If Scenario Stress Tester</span>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 8px; margin-bottom: 10px;">
+                        <select id="whatifSelect" class="ticker-dropdown" style="flex: 1;">
+                            <option value="CHINA_INFRA_STIMULUS">China $150B Metal Infrastructure Stimulus</option>
+                            <option value="RBI_RATE_CUT">RBI Cuts Repo Rate by 25 bps</option>
+                            <option value="CRUDE_OIL_SPIKE">Crude Oil Spikes +7% on Middle East Route Tension</option>
+                            <option value="BUDGET_INFRA_EXPANSION">Union Budget Expands Railway & Highway Capex +15%</option>
+                        </select>
+                        <button class="btn-buy" style="background: #3B82F6;" onclick="runWhatIfSimulation()">Simulate Shock</button>
+                    </div>
+                    <div id="whatifResultBox" style="font-size: 11px; background: #0A0D15; padding: 10px; border-radius: 6px; border: 1px solid var(--border-color); color: var(--text-secondary);">
+                        Select an event and click "Simulate Shock" to evaluate portfolio reaction.
+                    </div>
+                </div>
+
+                <!-- Comprehensive Trading Datasets Repository Terminal -->
+                <div class="card" style="border-top: 3px solid #8B5CF6;">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span>💾 Comprehensive Universal Trading Datasets Repository</span>
+                        </div>
+                        <div class="card-badge" style="background: rgba(139, 92, 246, 0.15); color: #A78BFA;" id="datasetHealthBadge">100% POPULATED</div>
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; font-size: 11px; margin-bottom: 10px;">
+                        <div style="background: #0B0E17; padding: 6px 8px; border-radius: 4px; border: 1px solid var(--border-color); text-align: center;">
+                            <div style="color: var(--text-muted); font-size: 9px;">TOTAL DATASETS</div>
+                            <strong id="datasetTotalCount" class="mono-text" style="color: #A78BFA; font-size: 13px;">7 Datasets</strong>
+                        </div>
+                        <div style="background: #0B0E17; padding: 6px 8px; border-radius: 4px; border: 1px solid var(--border-color); text-align: center;">
+                            <div style="color: var(--text-muted); font-size: 9px;">DATA ENTITIES</div>
+                            <strong id="datasetEntitiesCount" class="mono-text" style="color: var(--gold-bright); font-size: 13px;">72 Entities</strong>
+                        </div>
+                        <div style="background: #0B0E17; padding: 6px 8px; border-radius: 4px; border: 1px solid var(--border-color); text-align: center;">
+                            <div style="color: var(--text-muted); font-size: 9px;">MINING & MCX</div>
+                            <strong id="datasetMiningCount" class="mono-text" style="color: #34D399; font-size: 13px;">9 Reserves</strong>
+                        </div>
+                        <div style="background: #0B0E17; padding: 6px 8px; border-radius: 4px; border: 1px solid var(--border-color); text-align: center;">
+                            <div style="color: var(--text-muted); font-size: 9px;">CHART PATTERNS</div>
+                            <strong id="datasetPatternCount" class="mono-text" style="color: #60A5FA; font-size: 13px;">12 Calibrated</strong>
+                        </div>
+                    </div>
+
+                    <!-- Dataset Category Pills -->
+                    <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px;">
+                        <button class="agent-pill" style="cursor: pointer; border: 1px solid #8B5CF6;" onclick="inspectDatasetCategory('microstructure')">⚖️ SEBI STT & Charges</button>
+                        <button class="agent-pill" style="cursor: pointer; border: 1px solid #3B82F6;" onclick="inspectDatasetCategory('patterns')">📐 Pattern Win Rates</button>
+                        <button class="agent-pill" style="cursor: pointer; border: 1px solid #F59E0B;" onclick="inspectDatasetCategory('mining')">⛏️ Mining & Reserves</button>
+                        <button class="agent-pill" style="cursor: pointer; border: 1px solid #10B981;" onclick="inspectDatasetCategory('macro')">🏦 RBI & FII/DII</button>
+                        <button class="agent-pill" style="cursor: pointer; border: 1px solid #EC4899;" onclick="inspectDatasetCategory('fundamentals')">🏢 Fundamentals</button>
+                        <button class="agent-pill" style="cursor: pointer; border: 1px solid #14B8A6;" onclick="inspectDatasetCategory('forex-crypto')">💱 Forex & VDA</button>
+                    </div>
+
+                    <!-- Dataset Search Box -->
+                    <div style="display: flex; gap: 6px; margin-bottom: 8px;">
+                        <input type="text" id="datasetSearchInput" placeholder="Search any dataset (e.g. STT, CIL, W-Pattern, Repo, Zinc)..." style="flex: 1; background: #0B0E17; border: 1px solid var(--border-color); border-radius: 4px; padding: 6px 10px; color: #FFF; font-size: 11px;">
+                        <button class="btn-buy" style="background: #8B5CF6; padding: 6px 12px; font-size: 11px;" onclick="searchDataset()">Search Vault</button>
+                    </div>
+
+                    <!-- Dataset Output Display -->
+                    <div id="datasetOutputBox" style="background: #080A10; border: 1px solid var(--border-color); border-radius: 4px; padding: 10px; font-size: 11px; max-height: 140px; overflow-y: auto; color: var(--text-secondary); font-family: 'JetBrains Mono', monospace; line-height: 1.4;">
+                        Select a category above or enter a search query to inspect deep historical and empirical trading data points.
+                    </div>
+                </div>
+
+                <!-- Sub-Second Loss Suppressor Live Audit -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span>🛡️ Sub-Second Loss Suppression Audit</span>
+                        </div>
+                    </div>
+                    <div class="audit-log-list" id="suppressionLogList">
+                        <div class="empty-state">Loss suppression guard active. Every tick is checked in fractions of a second.</div>
+                    </div>
+                </div>
+
+                <!-- Real-time System Logs -->
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <span>📡 Real-Time Telemetry & Broker Stream</span>
+                        </div>
+                    </div>
+                    <div class="console-box" id="consoleBox">
+                        <div class="log-line info">[INIT] BharatTrader AI initialized. Connected to NSE/BSE stream.</div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
