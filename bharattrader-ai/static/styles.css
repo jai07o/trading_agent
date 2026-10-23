@@ -47,6 +47,17 @@ body {
 .emerald-text { color: var(--emerald); }
 .crimson-text { color: var(--crimson); }
 
+/* Proprietary Brand Protection & Anti-Extraction Shield */
+.protected-brand-asset {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-drag: none;
+    user-drag: none;
+    pointer-events: auto;
+}
+
 /* Top Navigation Bar */
 .navbar {
     background: #0B0E17;

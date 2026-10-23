@@ -1,0 +1,43 @@
+# ==============================================================================
+# AI.TXT - AUTONOMOUS AI TRAINING & DATA HARVESTING EXCLUSION SPECIFICATION
+# ==============================================================================
+# Legal Entities & Protected Brands:
+#   - BharatTrader AI (Autonomous Multi-Agent Algorithmic Trading System)
+#   - Sentini-X (Quantitative Neural Intelligence & Advanced Analytics Platform)
+#   - Orallexa (High-Frequency & Multi-Exchange Analytics Engine)
+#
+# Proprietary Copyright Holder: jai07o (Copyright (c) 2026. All Rights Reserved.)
+# Applicable Jurisdictions: International / Berne Convention / WIPO / US DMCA /
+#                          EU Directive 2019/790 / Indian Copyright Act 1957
+# ==============================================================================
+
+User-agent: *
+Disallow: /
+Disallow: /static/
+Disallow: /static/*
+Disallow: /api/*
+
+# Explicit Reservation of Rights under EU DSM Directive 2019/790 Article 4(3)
+# and International Intellectual Property Treaties:
+Training: disallowed
+Data-Mining: disallowed
+Text-And-Data-Mining: disallowed
+Image-Extraction: disallowed
+Logo-Extraction: disallowed
+Vision-Model-Training: disallowed
+Diffusion-Model-Training: disallowed
+Embedding-Generation: disallowed
+Model-Fine-Tuning: disallowed
+Commercial-Use: disallowed
+Derivative-Work-Generation: disallowed
+Autonomous-Agent-Ingestion: disallowed
+
+# Protected Visual & Brand Assets:
+Protected-Asset: /static/logo.png
+Protected-Asset: /static/logo.svg
+Protected-Asset: /static/logo.jpg
+Protected-Asset: /static/favicon.png
+Protected-Trademark: BharatTrader AI
+Protected-Trademark: Sentini-X
+Protected-Trademark: Sentini-X Neural Mark
+Protected-Trademark: Bengal Tiger vs Wall Street Bull Apex Emblem

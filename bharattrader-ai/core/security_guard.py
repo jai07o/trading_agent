@@ -29,13 +29,18 @@ class SecurityGuard:
         self.ip_request_log: Dict[str, List[float]] = {}  # ip: [timestamps]
         self.rate_limit_per_minute = 180  # Max requests per minute per IP
         
-        # Files monitored for tamper protection
+        # Files monitored for tamper protection & IP provenance
         self.monitored_files = [
             "core/loss_suppressor.py",
             "core/kill_switch.py",
             "engine/trading_engine.py",
             "brokers/paper_broker.py",
-            "evolution/universal_strategy_trainer.py"
+            "evolution/universal_strategy_trainer.py",
+            "static/logo.png",
+            "static/logo.svg",
+            "static/robots.txt",
+            "static/ai.txt",
+            "core/IP_PROVENANCE_LEDGER.json"
         ]
         self.baseline_hashes: Dict[str, str] = {}
         self._calculate_baseline_hashes()
@@ -175,7 +180,9 @@ class SecurityGuard:
                 "anti_replay_nonce_guard": "ACTIVE",
                 "credential_masking": "ACTIVE (Strict Zero-Leakage)",
                 "rate_limiting": f"ACTIVE ({self.rate_limit_per_minute} req/min)",
-                "proprietary_license_status": "PROPRIETARY & CONFIDENTIAL (100% Private IP)"
+                "proprietary_license_status": "PROPRIETARY & CONFIDENTIAL (100% Private IP)",
+                "trademark_and_logo_shield": "PROTECTED (BharatTrader AI & Sentini-X Registered)",
+                "anti_ai_crawler_guard": "ENFORCED (EU DSM Art 4(3) Opt-Out Active)"
             },
             "timestamp": time.strftime("%Y-%m-%d %H:%M:%S")
         }

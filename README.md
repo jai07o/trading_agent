@@ -303,8 +303,31 @@ python -c "from core.security_guard import security_guard; print(security_guard.
 
 ---
 
-## 🛡️ Proprietary & Security Notice
+---
 
-**PROPRIETARY & CONFIDENTIAL INTELLECTUAL PROPERTY — ALL RIGHTS RESERVED.**
+## 🛡️ Intellectual Property, Trademark & Anti-AI Protection Notice
 
-No open-source license is granted. This software, its algorithmic models, datasets, sub-second execution mechanisms, and risk guardians are private, restricted-access proprietary technology. Unauthorized duplication, redistribution, reverse engineering, or decompilation is strictly prohibited and protected by cryptographic integrity verification.
+**PROPRIETARY & CONFIDENTIAL INTELLECTUAL PROPERTY — ALL RIGHTS RESERVED.**  
+**Proprietor:** `jai07o` | **Effective Year:** 2026 | **Governing Framework:** WIPO Berne Convention, EU Directive 2019/790, US DMCA 17 U.S.C., Indian Copyright Act 1957.
+
+### 1. Trademark & Brand Asset Protection
+All names, logos, emblems, vector graphics, and brand iconography for **BharatTrader AI™** and **Sentini-X™** (including all visual assets, neural crest marks, and designs from current and prior development sessions) are strictly proprietary and registered under an immutable cryptographic ledger:
+
+| Asset | Format | Cryptographic SHA-256 Checksum | Classification |
+|---|---|---|---|
+| `bharattrader-ai/static/logo.png` | PNG | `2c4b63058e3762de1c185305b9ea8060fd9e959b2f7130215fefb9cea38508e0` | Master Official Brand Mark |
+| `bharattrader-ai/static/logo.svg` | SVG | `cea33e9fe0c75aaf6486c1bdae9994decf1d892591c304ac4a660054889db72c` | Vector Shield & Circuit Geometry |
+| `bharattrader-ai/static/logo.jpg` | JPG | `2c4b63058e3762de1c185305b9ea8060fd9e959b2f7130215fefb9cea38508e0` | High-Definition Display Graphic |
+| `bharattrader-ai/static/favicon.png` | PNG | `2c4b63058e3762de1c185305b9ea8060fd9e959b2f7130215fefb9cea38508e0` | Browser & Terminal Icon Mark |
+| `bharattrader-ai/static/robots.txt` | TXT | `1533026ddc8b6472d8c0ce5ad5c081aff738df88c3ad50ace04e44a1c92e057e` | Anti-Crawler Directives |
+| `bharattrader-ai/static/ai.txt` | TXT | `8c94ed974e7db1e88332fa9c01a316c86c8fca69e69419eb0e092706998af491` | Machine-Readable TDM Opt-Out |
+
+### 2. Strict Machine Learning & AI Training Opt-Out
+Pursuant to **Directive (EU) 2019/790 Article 4(3)**, the owner expressly reserves all rights and forbids:
+- Ingestion of any logo, artwork, documentation, or code into generative AI models, LLMs, LVMs, or diffusion pipelines (e.g. OpenAI GPT, Anthropic Claude, Google Gemini, Meta Llama, Midjourney, Stable Diffusion, DALL-E, Flux).
+- Automated scraping by web crawlers or AI agents (`GPTBot`, `CCBot`, `ClaudeBot`, `Google-Extended`, `Bytespider`, etc.).
+- Extraction of embeddings, feature maps, or latent representations.
+
+### 3. Absolute Prohibition Against Third-Party Use
+No commercial or non-commercial entity may copy, fork, mirror, display, hotlink, or create derivative works from the **BharatTrader AI** or **Sentini-X** logos or algorithmic code without prior written authorization signed by `jai07o`. File tamper detection is continuously enforced via `core/security_guard.py` and documented in [`IP_PROVENANCE_LEDGER.json`](IP_PROVENANCE_LEDGER.json) and [`PROPRIETARY_IP_DECLARATION.md`](PROPRIETARY_IP_DECLARATION.md).
+

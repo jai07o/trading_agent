@@ -32,6 +32,10 @@ async def security_headers_middleware(request, call_next):
     response.headers["X-Frame-Options"] = "DENY"
     response.headers["X-XSS-Protection"] = "1; mode=block"
     response.headers["X-Trading-Guard"] = "BharatTrader-Apex-Active"
+    response.headers["X-Robots-Tag"] = "noindex, nofollow, noarchive, noimageindex, nocache, nosnippet"
+    response.headers["X-AI-Training"] = "DENY"
+    response.headers["X-IP-Protection"] = "BharatTrader-AI-and-Sentini-X-Proprietary"
+    response.headers["Permissions-Policy"] = "interest-cohort=(), browsing-topics=()"
     return response
 
 # Serve static web frontend
@@ -83,6 +87,22 @@ def get_dashboard():
     if os.path.exists(index_path):
         return FileResponse(index_path)
     return JSONResponse({"status": "BharatTrader AI running", "version": settings.VERSION})
+
+@app.get("/robots.txt")
+def get_robots_txt():
+    """Serves strict anti-crawler directives forbidding all AI scrapers & image indexers."""
+    robots_path = os.path.join(static_dir, "robots.txt")
+    if os.path.exists(robots_path):
+        return FileResponse(robots_path, media_type="text/plain")
+    return JSONResponse({"status": "NOT_FOUND"}, status_code=404)
+
+@app.get("/ai.txt")
+def get_ai_txt():
+    """Serves machine-readable AI model training and data extraction exclusion specification."""
+    ai_path = os.path.join(static_dir, "ai.txt")
+    if os.path.exists(ai_path):
+        return FileResponse(ai_path, media_type="text/plain")
+    return JSONResponse({"status": "NOT_FOUND"}, status_code=404)
 
 @app.get("/api/state")
 def get_state():

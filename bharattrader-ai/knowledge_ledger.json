@@ -1,10 +1,10 @@
 {
-  "last_updated": "2026-10-23 19:02:15",
+  "last_updated": "2026-10-23 19:34:54",
   "agent_weights": {
-    "technicals": 0.3644,
-    "bull_analyst": 0.1496,
-    "bear_analyst": 0.3492,
-    "sentiment": 0.1368
+    "technicals": 0.364,
+    "bull_analyst": 0.1498,
+    "bear_analyst": 0.3496,
+    "sentiment": 0.1366
   },
   "learned_rules": [
     "Rule 1: Never enter long when RSI > 72 even if breakout looks strong (False breakout risk 78%).",
@@ -25,7 +25,8 @@
     "[LOSS SUPPRESSION AUDIT] GOLD_MCX (-0.42%): Sub-second guard severed position. Increased Bear Defense weight.",
     "[LOSS SUPPRESSION AUDIT] CRUDEOIL_MCX (-0.43%): Sub-second guard severed position. Increased Bear Defense weight.",
     "[LOSS SUPPRESSION AUDIT] NMDC.NS (-0.47%): Sub-second guard severed position. Increased Bear Defense weight.",
-    "[LOSS SUPPRESSION AUDIT] VEDL.NS (-0.46%): Sub-second guard severed position. Increased Bear Defense weight."
+    "[LOSS SUPPRESSION AUDIT] VEDL.NS (-0.46%): Sub-second guard severed position. Increased Bear Defense weight.",
+    "[LOSS SUPPRESSION AUDIT] VEDL.NS (-0.44%): Sub-second guard severed position. Increased Bear Defense weight."
   ],
   "daily_performance_history": []
 }

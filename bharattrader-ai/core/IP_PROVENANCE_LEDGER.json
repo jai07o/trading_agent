@@ -1,0 +1,106 @@
+{
+  "$schema": "https://bharattrader.ai/schemas/ip-provenance-v1.json",
+  "ledger_version": "2026.1-APEX-PROVENANCE",
+  "declaration": "OFFICIAL INTELLECTUAL PROPERTY & TRADEMARK PROVENANCE LEDGER",
+  "copyright_owner": {
+    "identifier": "jai07o",
+    "github_repository": "https://github.com/jai07o/trading_agent",
+    "rights_reserved": "All rights reserved worldwide. No license granted to public, third parties, or automated AI systems.",
+    "effective_year": 2026
+  },
+  "legal_framework": [
+    "Berne Convention for the Protection of Literary and Artistic Works",
+    "World Intellectual Property Organization (WIPO) Copyright Treaty",
+    "Directive (EU) 2019/790 of the European Parliament and of the Council (Article 4(3) TDM Opt-Out)",
+    "Digital Millennium Copyright Act (DMCA) 17 U.S.C. § 1201 & § 1202",
+    "Indian Copyright Act, 1957 (Act No. 14 of 1957 as amended)",
+    "Trade Marks Act, 1999 (India) and International Trademark Classifications 9, 36, and 42"
+  ],
+  "protected_brands": {
+    "bharattrader_ai": {
+      "brand_name": "BharatTrader AI",
+      "designation": "Autonomous Multi-Agent Indian Algorithmic Trading & Mining System",
+      "visual_identity": "Cybernetic Bengal Tiger vs Wall Street Bull Apex Holographic Shield",
+      "color_palette": {
+        "saffron_gold": "#F59E0B",
+        "holographic_gold": "#D4AF37",
+        "deep_obsidian": "#080A0F",
+        "cyber_cyan": "#06B6D4",
+        "apex_emerald": "#10B981"
+      },
+      "verified_assets": [
+        {
+          "file_path": "bharattrader-ai/static/logo.png",
+          "sha256": "2c4b63058e3762de1c185305b9ea8060fd9e959b2f7130215fefb9cea38508e0",
+          "format": "image/png",
+          "classification": "Master Official Brand Mark (Raster)"
+        },
+        {
+          "file_path": "bharattrader-ai/static/logo.svg",
+          "sha256": "cea33e9fe0c75aaf6486c1bdae9994decf1d892591c304ac4a660054889db72c",
+          "format": "image/svg+xml",
+          "classification": "Vector Shield Emblem & Sacred Circuit Geometry"
+        },
+        {
+          "file_path": "bharattrader-ai/static/logo.jpg",
+          "sha256": "2c4b63058e3762de1c185305b9ea8060fd9e959b2f7130215fefb9cea38508e0",
+          "format": "image/jpeg",
+          "classification": "High-Definition Master Display Graphic"
+        },
+        {
+          "file_path": "bharattrader-ai/static/favicon.png",
+          "sha256": "2c4b63058e3762de1c185305b9ea8060fd9e959b2f7130215fefb9cea38508e0",
+          "format": "image/png",
+          "classification": "Browser & Terminal Application Icon"
+        }
+      ]
+    },
+    "sentini_x": {
+      "brand_name": "Sentini-X",
+      "designation": "Quantitative Neural Intelligence, Autonomous Agent Workflows & Multi-Exchange Analytics",
+      "visual_identity": "Cybernetic Sentinel X-Emblem, Quantum Lattice Neural Matrix & Spectral Gradients",
+      "provenance_scope": "All prior chat sessions, architectural schemas, logos, graphics, and multi-agent designs created under the Sentini-X marque",
+      "rights_status": "Strictly proprietary and confidential. Exclusive property of jai07o.",
+      "ai_training_opt_out": true,
+      "third_party_commercial_use": false
+    }
+  },
+  "ai_and_crawler_restrictions": {
+    "text_and_data_mining_opt_out": true,
+    "training_exclusion_clause": "Machine-learning ingestion, fine-tuning, embedding generation, feature extraction, and diffusion training are expressly forbidden across all artificial intelligence models and autonomous agents.",
+    "blocked_crawlers": [
+      "GPTBot",
+      "ChatGPT-User",
+      "CCBot",
+      "anthropic-ai",
+      "ClaudeBot",
+      "Claude-Web",
+      "Google-Extended",
+      "Bytespider",
+      "FacebookBot",
+      "meta-externalagent",
+      "cohere-ai",
+      "PerplexityBot",
+      "Diffbot",
+      "Omgilibot",
+      "ImagesiftBot",
+      "Applebot-Extended",
+      "Amazonbot",
+      "Timpibot",
+      "YouBot",
+      "Scrapy",
+      "PetalBot",
+      "img2dataset"
+    ],
+    "http_response_directives": {
+      "X-Robots-Tag": "noindex, nofollow, noarchive, noimageindex, nocache, nosnippet",
+      "X-AI-Training": "DENY",
+      "X-IP-Protection": "BharatTrader-AI-and-Sentini-X-Proprietary"
+    }
+  },
+  "tamper_detection_integration": {
+    "engine_monitor": "core/security_guard.py",
+    "verification_frequency": "Continuous / At Startup & Health Checks",
+    "action_on_mismatch": "EMERGENCY_LOCKDOWN_AND_SECURITY_ALERT"
+  }
+}
